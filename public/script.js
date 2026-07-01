@@ -268,9 +268,9 @@ function initPortfolioFilter() {
       const filter = btn.getAttribute('data-filter');
 
       portfolioCards.forEach(card => {
-        const category = card.getAttribute('data-category');
+        const category = card.getAttribute('data-category') || '';
 
-        if (filter === 'all' || category === filter) {
+        if (filter === 'all' || category.split(' ').includes(filter)) {
           card.style.display = 'block';
           card.style.opacity = '0';
           card.style.transform = 'translateY(20px)';
@@ -307,45 +307,6 @@ function initSmoothScroll() {
   });
 }
 
-// ===== CONTACT FORM =====
-function initContactForm() {
-  const form = document.getElementById('contactForm');
-  if (!form) return;
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const submitBtn = form.querySelector('.form-submit');
-    const originalContent = submitBtn.innerHTML;
-
-    // Loading state
-    submitBtn.innerHTML = `
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="animation: spin 1s linear infinite;"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg>
-      Mengirim...
-    `;
-    submitBtn.disabled = true;
-
-    // Simulate form submission
-    setTimeout(() => {
-      submitBtn.innerHTML = `
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-        Pesan Terkirim!
-      `;
-      submitBtn.style.background = 'linear-gradient(135deg, #00c853, #00e676)';
-
-      // Create success notification
-      showNotification('Pesan berhasil dikirim! Saya akan segera menghubungi Anda.');
-
-      // Reset form
-      setTimeout(() => {
-        form.reset();
-        submitBtn.innerHTML = originalContent;
-        submitBtn.style.background = '';
-        submitBtn.disabled = false;
-      }, 3000);
-    }, 2000);
-  });
-}
 
 // ===== NOTIFICATION =====
 function showNotification(message) {
@@ -457,8 +418,31 @@ function initCursorGlow() {
   });
 }
 
+// ===== THEME SYSTEM (PRE-INIT) =====
+const savedTheme = localStorage.getItem('theme');
+const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
+  document.documentElement.classList.add('light-theme');
+} else {
+  document.documentElement.classList.remove('light-theme');
+}
+
+// ===== THEME TOGGLE CLICK EVENT =====
+function initThemeToggle() {
+  const themeToggleBtn = document.getElementById('themeToggleBtn');
+  if (!themeToggleBtn) return;
+
+  themeToggleBtn.addEventListener('click', () => {
+    const isLight = document.documentElement.classList.toggle('light-theme');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  });
+}
+
 // ===== INITIALIZE ALL =====
 document.addEventListener('DOMContentLoaded', () => {
+  // Theme Toggle
+  initThemeToggle();
+
   // Particles
   const canvas = document.getElementById('particles-canvas');
   if (canvas) new ParticleSystem(canvas);
@@ -470,7 +454,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initPortfolioFilter();
   initSmoothScroll();
-  initContactForm();
   initTiltEffect();
   initTypingEffect();
   initCursorGlow();
