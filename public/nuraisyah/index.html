@@ -1,0 +1,2154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nur Aisyah - Portofolio Profesional</title>
+    <meta name="description" content="Portofolio profesional Nur Aisyah, Lulusan S1 Teknik Komputer Universitas Syiah Kuala dengan keahlian di bidang Deep Learning, Pengolahan Citra, dan UI/UX Design.">
+    <!-- Favicon (Profile Photo) -->
+    <link rel="icon" type="image/jpeg" href="profile-aisyah.jpg">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Embedded Styles -->
+    <style>
+        /* ==========================================================================
+           DESIGN SYSTEM & VARIABLES
+           ========================================================================== */
+        :root {
+            /* Fonts */
+            --font-primary: 'Inter', sans-serif;
+            --font-heading: 'Outfit', sans-serif;
+
+            /* Common Transitions */
+            --transition-fast: all 0.2s ease;
+            --transition-normal: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+            /* Common Dimensions */
+            --container-max-width: 1200px;
+            --header-height: 80px;
+        }
+
+        /* Dark Theme Variables (Default) */
+        .dark-theme {
+            --bg-primary: #0b0f19;
+            --bg-secondary: #111827;
+            --bg-alternate: #161f30;
+            
+            --card-bg: rgba(17, 24, 39, 0.7);
+            --card-border: rgba(255, 255, 255, 0.06);
+            --card-shadow: rgba(0, 0, 0, 0.3);
+            
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --text-muted: #6b7280;
+            
+            --color-primary: #8b5cf6; /* Violet */
+            --color-secondary: #06b6d4; /* Cyan */
+            --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
+            --gradient-glow: rgba(139, 92, 246, 0.15);
+            
+            --nav-bg: rgba(11, 15, 25, 0.8);
+            --nav-menu-bg: rgba(11, 15, 25, 0.95);
+            --nav-border: rgba(255, 255, 255, 0.04);
+            
+            --input-bg: rgba(31, 41, 55, 0.5);
+            --input-border: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Light Theme Variables */
+        .light-theme {
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --bg-alternate: #f1f5f9;
+            
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --card-border: rgba(0, 0, 0, 0.06);
+            --card-shadow: rgba(15, 23, 42, 0.05);
+            
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            
+            --color-primary: #6d28d9; /* Deep Violet */
+            --color-secondary: #0891b2; /* Deep Cyan */
+            --gradient-primary: linear-gradient(135deg, #6d28d9 0%, #0891b2 100%);
+            --gradient-glow: rgba(109, 40, 217, 0.08);
+            
+            --nav-bg: rgba(248, 250, 252, 0.8);
+            --nav-menu-bg: rgba(248, 250, 252, 0.95);
+            --nav-border: rgba(0, 0, 0, 0.05);
+            
+            --input-bg: rgba(255, 255, 255, 0.9);
+            --input-border: rgba(0, 0, 0, 0.1);
+        }
+
+        /* ==========================================================================
+           RESET & BASE STYLES
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .alternate-bg {
+            background-color: var(--bg-alternate);
+            transition: background-color 0.4s ease;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-fast);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ==========================================================================
+           DECORATIVE BACKGROUND BLOBS
+           ========================================================================== */
+        .blob-bg {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.45;
+            pointer-events: none;
+            animation: pulse 8s infinite alternate ease-in-out;
+            transition: var(--transition-slow);
+        }
+
+        .blob-1 {
+            top: 10%;
+            left: -150px;
+            background: radial-gradient(circle, var(--color-primary) 0%, transparent 70%);
+        }
+
+        .blob-2 {
+            top: 45%;
+            right: -150px;
+            background: radial-gradient(circle, var(--color-secondary) 0%, transparent 70%);
+            animation-delay: 2s;
+        }
+
+        .blob-3 {
+            bottom: 10%;
+            left: 20%;
+            background: radial-gradient(circle, var(--color-primary) 0%, transparent 70%);
+            animation-delay: 4s;
+            opacity: 0.25;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1) translate(0, 0);
+            }
+            100% {
+                transform: scale(1.15) translate(30px, -20px);
+            }
+        }
+
+        /* ==========================================================================
+           TYPOGRAPHY & UTILITIES
+           ========================================================================== */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.25;
+        }
+
+        .text-gradient {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .text-gradient-icon {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: inherit;
+        }
+
+        /* Glassmorphism Card Base */
+        .card-glass {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px var(--card-shadow);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: var(--transition-normal);
+        }
+
+        .card-glass:hover {
+            transform: translateY(-5px);
+            border-color: rgba(139, 92, 246, 0.25);
+            box-shadow: 0 15px 35px var(--gradient-glow);
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .title-bar {
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-primary);
+            margin: 0 auto 1.5rem auto;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem 1.8rem;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            gap: 0.5rem;
+            font-size: 1rem;
+            border: none;
+            transition: var(--transition-normal);
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: #ffffff;
+            box-shadow: 0 4px 15px var(--gradient-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 4px 15px var(--card-shadow);
+        }
+
+        .btn-secondary:hover {
+            background: var(--card-bg);
+            border-color: var(--color-primary);
+            transform: translateY(-2px);
+        }
+
+        .nav-download-btn {
+            padding: 0.5rem 1.2rem;
+            font-size: 0.9rem;
+            border-radius: 6px;
+        }
+
+        @media (max-width: 992px) {
+            .nav-download-btn {
+                display: none;
+            }
+        }
+
+        .btn-block {
+            width: 100%;
+        }
+
+        .btn-icon {
+            font-size: 0.9rem;
+            transition: transform 0.2s ease;
+        }
+
+        .btn:hover .btn-icon {
+            transform: translateX(3px);
+        }
+
+        /* ==========================================================================
+           HEADER / NAVBAR
+           ========================================================================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background: var(--nav-bg);
+            border-bottom: 1px solid var(--nav-border);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.4s ease, border-color 0.4s ease, height 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            height: 70px;
+            box-shadow: 0 10px 30px var(--card-shadow);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .logo-accent {
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: var(--transition-fast);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: var(--transition-normal);
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--color-primary);
+            box-shadow: 0 0 15px var(--gradient-glow);
+            transform: rotate(15deg);
+        }
+
+        .dark-theme .sun-icon {
+            display: block;
+        }
+        .dark-theme .moon-icon {
+            display: none;
+        }
+
+        .light-theme .sun-icon {
+            display: none;
+        }
+        .light-theme .moon-icon {
+            display: block;
+        }
+
+        /* Mobile Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 24px;
+            height: 18px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hamburger .bar {
+            width: 100%;
+            height: 2px;
+            background-color: var(--text-primary);
+            border-radius: 2px;
+            transition: var(--transition-fast);
+        }
+
+        /* ==========================================================================
+           HERO SECTION
+           ========================================================================== */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: calc(var(--header-height) + 2rem);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: var(--gradient-glow);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+            font-family: var(--font-heading);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .hero-subtitle {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .typing-text {
+            color: var(--color-secondary);
+            position: relative;
+            border-right: 2px solid var(--color-secondary);
+            padding-right: 4px;
+            animation: blink 0.75s step-end infinite;
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent }
+            50% { border-color: var(--color-secondary); }
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.2rem;
+        }
+
+        /* Hero Image & Floating Cards */
+        .hero-image-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-img-card {
+            position: relative;
+            width: 340px;
+            height: 420px;
+        }
+
+        .hero-img-wrapper {
+            width: 100%;
+            height: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 2px solid var(--card-border);
+            box-shadow: 0 20px 40px var(--card-shadow);
+            transition: var(--transition-normal);
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+
+        .hero-img-card:hover .hero-img-wrapper {
+            border-color: var(--color-primary);
+            box-shadow: 0 25px 50px var(--gradient-glow);
+        }
+
+        .hero-img-card:hover .hero-img {
+            transform: scale(1.03);
+        }
+
+        /* Floating Badges */
+        .floating-badge {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem 1.2rem;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            box-shadow: 0 10px 25px var(--card-shadow);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 10;
+            transition: var(--transition-normal);
+            animation: float 4s infinite ease-in-out;
+        }
+
+        .floating-badge h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 0.1rem;
+            color: var(--text-primary);
+        }
+
+        .floating-badge p {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .badge-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: var(--gradient-primary);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .badge-1 {
+            bottom: 35%;
+            left: -40px;
+            animation-delay: 0s;
+        }
+
+        .badge-2 {
+            bottom: 12%;
+            right: -40px;
+            animation-delay: 2s;
+        }
+
+        .floating-badge:hover {
+            transform: scale(1.05) translateY(-5px);
+            border-color: var(--color-secondary);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* ==========================================================================
+           ABOUT SECTION
+           ========================================================================== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-info {
+            padding: 2.5rem;
+        }
+
+        .about-info .card-icon {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .about-info p {
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+        }
+
+        .about-info p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .highlight-item {
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+
+        .highlight-num {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        /* ==========================================================================
+           EDUCATION (TIMELINE) SECTION
+           ========================================================================== */
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 5px;
+            bottom: 5px;
+            width: 2px;
+            background: var(--gradient-primary);
+            opacity: 0.3;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -29px;
+            top: 40px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--bg-primary);
+            border: 3px solid var(--color-primary);
+            z-index: 5;
+            box-shadow: 0 0 10px var(--color-primary);
+        }
+
+        .timeline-date {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--gradient-glow);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            font-family: var(--font-heading);
+        }
+
+        .timeline-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-institution {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-desc {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .timeline-details li {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .detail-icon {
+            color: var(--color-secondary);
+            margin-top: 0.25rem;
+            font-size: 0.95rem;
+        }
+
+        .timeline-link {
+            color: var(--color-secondary);
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: var(--transition-fast);
+        }
+
+        .timeline-link:hover {
+            color: var(--color-primary);
+            text-underline-offset: 5px;
+        }
+
+        /* ==========================================================================
+           EXPERIENCE & ORGANIZATION SECTION
+           ========================================================================== */
+        .exp-org-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+
+        .column-header {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 0.8rem;
+        }
+
+        .column-header i {
+            color: var(--color-primary);
+        }
+
+        .exp-column,
+        .org-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+
+        .exp-card {
+            padding: 2.5rem;
+        }
+
+        .exp-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .exp-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .exp-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.6rem;
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--color-secondary);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: 4px;
+        }
+
+        .exp-tag.tag-org {
+            background: rgba(139, 92, 246, 0.1);
+            color: var(--color-primary);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .exp-duration {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .exp-title {
+            font-size: 1.35rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .exp-company {
+            font-size: 1rem;
+            color: var(--color-primary);
+            font-weight: 500;
+        }
+
+        .exp-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+            font-weight: 500;
+        }
+
+        .exp-bullets {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .exp-bullets li {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .exp-bullets li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+            line-height: 1;
+            top: -1px;
+        }
+
+        /* ==========================================================================
+           SKILLS SECTION
+           ========================================================================== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 3rem;
+        }
+
+        .skills-card {
+            padding: 2.5rem;
+        }
+
+        .skills-group-title {
+            font-size: 1.6rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .skills-group-title i {
+            font-size: 1.4rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+
+        .skill-item {
+            width: 100%;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .skill-name {
+            color: var(--text-primary);
+        }
+
+        .skill-percentage {
+            color: var(--color-secondary);
+            font-weight: 600;
+        }
+
+        .skill-bar-bg {
+            width: 100%;
+            height: 8px;
+            background: var(--bg-primary);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-bar-fill {
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: 4px;
+            width: 0; /* Animated dynamically or defined in inline HTML style */
+            transition: width 1.5s cubic-bezier(0.1, 1, 0.1, 1);
+        }
+
+        /* Personal Skills cards */
+        .personal-skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .p-skill-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: var(--transition-normal);
+        }
+
+        .p-skill-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--color-primary);
+            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.1);
+        }
+
+        .p-skill-icon {
+            font-size: 1.6rem;
+            color: var(--color-primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .p-skill-card h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .p-skill-card p {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* ==========================================================================
+           CONTACT SECTION
+           ========================================================================== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 3rem;
+        }
+
+        .contact-info-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-info-panel .contact-card {
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .contact-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: var(--gradient-glow);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            color: var(--color-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 0.2rem;
+        }
+
+        .contact-details p {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .contact-link:hover {
+            color: var(--color-primary);
+        }
+
+        .social-media-panel {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .social-media-panel h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--bg-primary);
+            border: 1px solid var(--card-border);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: var(--transition-normal);
+        }
+
+        .social-icon:hover {
+            color: #ffffff;
+            background: var(--gradient-primary);
+            border-color: transparent;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        /* Contact Form Panel */
+        .contact-form-panel {
+            padding: 2.5rem;
+        }
+
+        .contact-form-panel h3 {
+            font-size: 1.6rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .input-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            pointer-events: none;
+            transition: var(--transition-fast);
+        }
+
+        .textarea-icon {
+            top: 22px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.85rem 1rem 0.85rem 2.8rem;
+            background: var(--input-bg);
+            border: 1px solid var(--input-border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: var(--font-primary);
+            font-size: 0.95rem;
+            transition: var(--transition-normal);
+        }
+
+        .contact-form textarea {
+            resize: none;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 10px var(--gradient-glow);
+            background: var(--bg-primary);
+        }
+
+        .contact-form input:focus + .input-icon,
+        .contact-form textarea:focus + .input-icon {
+            color: var(--color-primary);
+        }
+
+        .form-feedback {
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-top: 0.5rem;
+            text-align: center;
+            display: none;
+        }
+
+        .form-feedback.success {
+            color: #10b981;
+            display: block;
+        }
+
+        .form-feedback.error {
+            color: #ef4444;
+            display: block;
+        }
+
+        /* ==========================================================================
+           FOOTER
+           ========================================================================== */
+        .footer {
+            padding: 3rem 0;
+            border-top: 1px solid var(--nav-border);
+            background: var(--bg-secondary);
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .footer i {
+            color: var(--color-primary);
+            margin: 0 2px;
+        }
+
+        /* ==========================================================================
+           SCROLL REVEAL ANIMATIONS
+           ========================================================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ==========================================================================
+           RESPONSIVE DESIGN (MEDIA QUERIES)
+           ========================================================================== */
+
+        /* Up to 1024px (Tablets) */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+
+            .hero-content {
+                order: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-image-container {
+                order: 0;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .exp-org-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        /* Up to 992px (Tablets & Mobile Phones) */
+        @media (max-width: 992px) {
+            section {
+                padding: 4rem 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero-title {
+                font-size: 2.4rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.4rem;
+            }
+
+            .navbar {
+                height: 70px;
+            }
+
+            /* Navigation Menu for Mobile */
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--nav-menu-bg);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                flex-direction: column;
+                align-items: center;
+                padding: 2.5rem 0;
+                gap: 2rem;
+                transition: left 0.4s ease;
+                border-top: 1px solid var(--nav-border);
+                z-index: 999;
+                overflow-y: auto;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            /* Animated Hamburger Icon */
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .hero-img-card {
+                width: 280px;
+                height: 350px;
+            }
+
+            .floating-badge {
+                padding: 0.6rem 1rem;
+            }
+
+            .floating-badge h4 {
+                font-size: 0.8rem;
+            }
+
+            .floating-badge p {
+                font-size: 0.75rem;
+            }
+
+            .badge-1 {
+                left: -15px;
+            }
+
+            .badge-2 {
+                right: -15px;
+            }
+
+            .about-highlights {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.2rem;
+            }
+
+            .personal-skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Up to 480px (Small Phones) */
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+                gap: 0.8rem;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            /* Redesign hero photo and badges layout on tiny devices to prevent overflows */
+            .hero-img-card {
+                height: auto;
+                width: 100%;
+                max-width: 280px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .hero-img-wrapper {
+                height: 300px;
+                width: 100%;
+            }
+
+            .floating-badge {
+                position: static;
+                width: 100%;
+                box-sizing: border-box;
+                animation: none;
+                transform: none !important;
+            }
+
+            .about-highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                padding-left: 1rem;
+            }
+
+            .timeline::before {
+                left: 4px;
+            }
+
+            .timeline-dot {
+                left: -18px; /* aligns perfectly to center of line at 4px */
+                width: 12px;
+                height: 12px;
+                top: 42px;
+            }
+
+            .timeline-item {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .exp-card {
+                padding: 1.5rem;
+            }
+
+            .skills-card {
+                padding: 1.5rem;
+            }
+
+            .contact-info-panel .contact-card {
+                padding: 1.5rem;
+            }
+
+            .contact-form-panel {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <!-- Background Blur Elements -->
+    <div class="blob-bg blob-1"></div>
+    <div class="blob-bg blob-2"></div>
+    <div class="blob-bg blob-3"></div>
+
+    <!-- Header / Navbar -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span class="logo-accent">&lt;</span>Aisyah<span class="logo-accent">/&gt;</span>
+            </a>
+            <nav class="nav-menu" id="navMenu">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">Profil</a>
+                <a href="#education" class="nav-link">Pendidikan</a>
+                <a href="#experience" class="nav-link">Pengalaman</a>
+                <a href="#skills" class="nav-link">Kemampuan</a>
+                <a href="#contact" class="nav-link">Kontak</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="CV Nur Aisyah.pdf" download="CV_Nur_Aisyah.pdf" class="btn btn-primary nav-download-btn">
+                    <span class="btn-text">Unduh CV</span>
+                    <i class="fas fa-download btn-icon"></i>
+                </a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+                    <i class="fas fa-sun sun-icon"></i>
+                    <i class="fas fa-moon moon-icon"></i>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="section hero-section">
+            <div class="container hero-grid">
+                <div class="hero-content reveal">
+                    <span class="hero-badge">Selamat Datang di Portofolio Saya</span>
+                    <h1 class="hero-title">Halo, Saya <span class="text-gradient">Nur Aisyah</span></h1>
+                    <h2 class="hero-subtitle">Lulusan S1 <span class="typing-text" id="typingText"></span></h2>
+                    <p class="hero-description">
+                        Lulusan S1 Teknik Komputer dengan fokus pada Multimedia, Pengolahan Citra, dan Deep Learning. Siap berkontribusi dalam pengembangan solusi cerdas berbasis AI dan teknologi digital.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <span class="btn-text">Hubungi Saya</span>
+                            <i class="fas fa-paper-plane btn-icon"></i>
+                        </a>
+                        <a href="CV Nur Aisyah.pdf" download="CV_Nur_Aisyah.pdf" class="btn btn-secondary">
+                            <span class="btn-text">Unduh CV</span>
+                            <i class="fas fa-download btn-icon"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image-container reveal">
+                    <div class="hero-img-card">
+                        <div class="hero-img-wrapper">
+                            <img src="profile-aisyah.jpg" alt="Nur Aisyah Profile" class="hero-img">
+                        </div>
+                        <div class="floating-badge badge-1">
+                            <div class="badge-icon"><i class="fas fa-brain"></i></div>
+                            <div class="badge-text">
+                                <h4>Deep Learning</h4>
+                                <p>Fokus Riset & Implementasi</p>
+                            </div>
+                        </div>
+                        <div class="floating-badge badge-2">
+                            <div class="badge-icon"><i class="fas fa-desktop"></i></div>
+                            <div class="badge-text">
+                                <h4>UI/UX Design</h4>
+                                <p>Figma & Web Design</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section about-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="section-title">Profil Personal</h2>
+                    <div class="title-bar"></div>
+                    <p class="section-subtitle">Mengenal saya lebih dekat, bidang keahlian, dan minat profesional saya</p>
+                </div>
+                <div class="about-grid">
+                    <div class="about-info card-glass reveal">
+                        <div class="card-icon"><i class="fas fa-user-tie text-gradient-icon"></i></div>
+                        <h3>Tentang Saya</h3>
+                        <p>
+                            Saya adalah seorang lulusan S1 Teknik Komputer yang memiliki antusiasme tinggi di bidang teknologi visual dan kecerdasan buatan. Dengan fondasi keilmuan yang kuat, saya memiliki pengalaman dalam praproses citra, segmentasi, serta pembangunan model <strong>Deep Learning</strong> untuk kebutuhan analisis visual.
+                        </p>
+                        <p>
+                            Selain aspek teknis engineering, saya juga memiliki ketertarikan kuat pada aspek multimedia dan desain antarmuka pengguna (UI/UX). Saya mampu bekerja sama dalam tim, bertanggung jawab, serta cepat beradaptasi dengan lingkungan kerja baru untuk menghadirkan solusi teknologi yang bernilai guna.
+                        </p>
+                    </div>
+                    <div class="about-highlights reveal">
+                        <div class="highlight-item card-glass">
+                            <div class="highlight-num text-gradient">3.51</div>
+                            <div class="highlight-label">IPK Akademik (Skala 4.00)</div>
+                        </div>
+                        <div class="highlight-item card-glass">
+                            <div class="highlight-num text-gradient">S1</div>
+                            <div class="highlight-label">Teknik Komputer</div>
+                        </div>
+                        <div class="highlight-item card-glass">
+                            <div class="highlight-num text-gradient">AI</div>
+                            <div class="highlight-label">Multimedia & Citra</div>
+                        </div>
+                        <div class="highlight-item card-glass">
+                            <div class="highlight-num text-gradient">BPN</div>
+                            <div class="highlight-label">Pengalaman Proyek UI</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section education-section alternate-bg">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="section-title">Riwayat Pendidikan</h2>
+                    <div class="title-bar"></div>
+                    <p class="section-subtitle">Latar belakang akademis yang membentuk kompetensi saya</p>
+                </div>
+                <div class="timeline reveal">
+                    <div class="timeline-item card-glass">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2021 - 2025</div>
+                        <h3 class="timeline-title">S1 Teknik Komputer</h3>
+                        <h4 class="timeline-institution">Universitas Syiah Kuala</h4>
+                        <p class="timeline-desc">
+                            Sebagai mahasiswa Teknik Komputer, saya memfokuskan studi pada bidang **Multimedia, Pengolahan Citra (Image Processing), dan Deep Learning**. 
+                        </p>
+                        <ul class="timeline-details">
+                            <li><i class="fas fa-check-circle detail-icon"></i> <strong>IPK:</strong> 3.51 (Lulus Tepat Waktu dengan Predikat Sangat Memuaskan)</li>
+                            <li><i class="fas fa-check-circle detail-icon"></i> <strong>Fokus Riset:</strong> Praproses citra, segmentasi citra digital, serta implementasi model deep learning untuk analisis visual objek.</li>
+                            <li><i class="fas fa-check-circle detail-icon"></i> <strong>Keterampilan Praktis:</strong> Pemrograman Python untuk visi komputer, pengolahan data citra digital, serta perancangan sistem berbasis hardware-software.</li>
+                            <li><i class="fas fa-journal-whills detail-icon"></i> <strong>Publikasi Ilmiah:</strong> <a href="https://ieeexplore.ieee.org/document/11414411" target="_blank" class="timeline-link">"Fundus Image Segmentation using Attention Mechanism and Image Contrast Algorithm for Diabetic Retinopathy Detection"</a> (IEEE Xplore, 2026)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience & Organization Section -->
+        <section id="experience" class="section experience-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="section-title">Pengalaman & Organisasi</h2>
+                    <div class="title-bar"></div>
+                    <p class="section-subtitle">Kontribusi profesional dan kegiatan organisasi yang telah saya jalani</p>
+                </div>
+                
+                <div class="exp-org-grid">
+                    <!-- Work/Internship Column -->
+                    <div class="exp-column reveal">
+                        <h3 class="column-header"><i class="fas fa-briefcase"></i> Pengalaman Kerja & Magang</h3>
+                        
+                        <!-- New Experience: Entry Data Halal -->
+                        <div class="exp-card card-glass">
+                            <div class="exp-header">
+                                <div class="exp-meta">
+                                    <span class="exp-tag">Pekerjaan</span>
+                                    <span class="exp-duration">Maret 2026 - Sekarang</span>
+                                </div>
+                                <h4 class="exp-title">Tim Entry Data Sertifikasi Halal</h4>
+                                <h5 class="exp-company">Program Pendampingan Sertifikasi Halal Pelaku Usaha</h5>
+                            </div>
+                            <p class="exp-description">
+                                Bertugas menginput data untuk membantu pelaku usaha mendapatkan sertifikat halal.
+                            </p>
+                            <ul class="exp-bullets">
+                                <li>Memeriksa kelengkapan berkas dokumen persyaratan sertifikasi halal dari para pelaku usaha mikro, kecil, dan menengah (UMKM).</li>
+                                <li>Melakukan entri data administratif secara tepat dan akurat ke dalam sistem registrasi sertifikasi halal.</li>
+                                <li>Membantu mempercepat administrasi pengurusan guna mendukung pelaku usaha lokal dalam memperoleh legalitas produk halal.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Experience: Sekolah Alam Kahfis Aceh -->
+                        <div class="exp-card card-glass">
+                            <div class="exp-header">
+                                <div class="exp-meta">
+                                    <span class="exp-tag">Pekerjaan</span>
+                                    <span class="exp-duration">Februari 2026</span>
+                                </div>
+                                <h4 class="exp-title">Media Kreatif & Video Editor</h4>
+                                <h5 class="exp-company">Sekolah Alam Kahfis Aceh</h5>
+                            </div>
+                            <p class="exp-description">
+                                Bertanggung jawab dalam pembuatan konten media kreatif dan penyuntingan video untuk dokumentasi serta publikasi sekolah.
+                            </p>
+                            <ul class="exp-bullets">
+                                <li>Membuat rancangan konsep kreatif serta memproduksi konten video dokumentasi dan edukasi untuk Sekolah Alam Kahfis Aceh.</li>
+                                <li>Melakukan proses penyuntingan video (editing) pascaproduksi, termasuk penyelarasan audio, pemotongan klip, dan pemberian efek visual/grafis pendukung.</li>
+                                <li>Berkolaborasi dengan tim pengajar dan staf untuk menonjolkan metode pembelajaran berbasis alam melalui konten digital yang menarik di media sosial.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Existing Experience: BPN Aceh -->
+                        <div class="exp-card card-glass">
+                            <div class="exp-header">
+                                <div class="exp-meta">
+                                    <span class="exp-tag">Magang / Kerja Praktik</span>
+                                    <span class="exp-duration">Jan - Feb 2024</span>
+                                </div>
+                                <h4 class="exp-title">UI/UX Designer & Web Interface Developer</h4>
+                                <h5 class="exp-company">Kantor Wilayah Badan Pertanahan Nasional Provinsi Aceh</h5>
+                            </div>
+                            <p class="exp-description">
+                                Mengerjakan desain antarmuka website untuk sistem monitoring sebagai topik Kerja Praktik (KP).
+                            </p>
+                            <ul class="exp-bullets">
+                                <li>Menganalisis kebutuhan sistem monitoring Bidang Penetapan Hak dan Pendaftaran di Kanwil BPN Aceh.</li>
+                                <li>Merancang User Interface (UI) website interaktif yang intuitif dan memudahkan staf memantau progres penetapan hak atas tanah.</li>
+                                <li>Berkolaborasi dengan tim IT internal untuk memastikan integrasi desain antarmuka dengan fungsionalitas sistem.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Organization Column -->
+                    <div class="org-column reveal">
+                        <h3 class="column-header"><i class="fas fa-users"></i> Pengalaman Organisasi</h3>
+                        <div class="exp-card card-glass">
+                            <div class="exp-header">
+                                <div class="exp-meta">
+                                    <span class="exp-tag tag-org">Himpunan Mahasiswa</span>
+                                    <span class="exp-duration">Feb - Mei 2024</span>
+                                </div>
+                                <h4 class="exp-title">Anggota Divisi PDD (Publikasi & Dokumentasi)</h4>
+                                <h5 class="exp-company">HIMATEKKOM (Himpunan Mahasiswa Teknik Komputer)</h5>
+                            </div>
+                            <p class="exp-description">
+                                Berkontribusi aktif dalam mendukung publikasi visual dan media dokumentasi organisasi.
+                            </p>
+                            <ul class="exp-bullets">
+                                <li>Bertanggung jawab dalam dokumentasi foto dan video untuk berbagai kegiatan resmi dan non-resmi HIMATEKKOM.</li>
+                                <li>Membuat konten visual promosi acara himpunan serta mengedit video dokumentasi pasca-kegiatan.</li>
+                                <li>Bekerja sama dalam tim publikasi untuk menyelaraskan visual branding organisasi di media sosial.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section skills-section alternate-bg">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="section-title">Keahlian & Kemampuan</h2>
+                    <div class="title-bar"></div>
+                    <p class="section-subtitle">Kompetensi teknis dan kemampuan personal yang saya miliki</p>
+                </div>
+                
+                <div class="skills-grid">
+                    <!-- Technical Skills -->
+                    <div class="skills-card card-glass reveal">
+                        <h3 class="skills-group-title"><i class="fas fa-code text-gradient-icon"></i> Kemampuan Teknikal</h3>
+                        <div class="skills-list">
+                            <!-- Skill 1 -->
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Deep Learning & Image Processing (Python, OpenCV)</span>
+                                    <span class="skill-percentage">85%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-fill" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                            <!-- Skill 2 -->
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Desain Grafis & UI/UX (Canva, Figma)</span>
+                                    <span class="skill-percentage">90%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-fill" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            <!-- Skill 3 -->
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Penguasaan Media Sosial & Multimedia</span>
+                                    <span class="skill-percentage">80%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-fill" style="width: 80%;"></div>
+                                </div>
+                            </div>
+                            <!-- Skill 4 -->
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Microsoft Office (Word, Excel, PowerPoint)</span>
+                                    <span class="skill-percentage">95%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-fill" style="width: 95%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personal Skills -->
+                    <div class="skills-card card-glass reveal">
+                        <h3 class="skills-group-title"><i class="fas fa-user-check text-gradient-icon"></i> Kemampuan Personal</h3>
+                        <div class="personal-skills-grid">
+                            <div class="p-skill-card">
+                                <div class="p-skill-icon"><i class="fas fa-comments"></i></div>
+                                <h4>Komunikasi Efektif</h4>
+                                <p>Mampu menyampaikan ide-ide teknis dengan bahasa yang lugas dan mudah dipahami.</p>
+                            </div>
+                            <div class="p-skill-card">
+                                <div class="p-skill-icon"><i class="fas fa-lightbulb"></i></div>
+                                <h4>Kreativitas</h4>
+                                <p>Suka mengeksplorasi solusi visual dan pemecahan masalah dengan cara inovatif.</p>
+                            </div>
+                            <div class="p-skill-card">
+                                <div class="p-skill-icon"><i class="fas fa-sync-alt"></i></div>
+                                <h4>Kemampuan Beradaptasi</h4>
+                                <p>Cepat mempelajari teknologi baru serta mudah menyesuaikan diri dengan lingkungan baru.</p>
+                            </div>
+                            <div class="p-skill-card">
+                                <div class="p-skill-icon"><i class="fas fa-users-cog"></i></div>
+                                <h4>Kerja Sama Tim</h4>
+                                <p>Dapat berkolaborasi dengan baik dalam kelompok untuk mencapai tujuan bersama.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="section-title">Hubungi Saya</h2>
+                    <div class="title-bar"></div>
+                    <p class="section-subtitle">Ada pertanyaan atau ingin berkolaborasi? Mari terhubung!</p>
+                </div>
+                
+                <div class="contact-grid">
+                    <!-- Contact Information -->
+                    <div class="contact-info-panel reveal">
+                        <div class="contact-card card-glass">
+                            <div class="contact-item">
+                                <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                                <div class="contact-details">
+                                    <h4>Telepon / WhatsApp</h4>
+                                    <p><a href="https://wa.me/6282215857067" target="_blank" class="contact-link">082215857067</a></p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                                <div class="contact-details">
+                                    <h4>Email</h4>
+                                    <p><a href="mailto:nuraisyah2456@gmail.com" class="contact-link">nuraisyah2456@gmail.com</a></p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                <div class="contact-details">
+                                    <h4>Lokasi</h4>
+                                    <p>Lampulo, Kuta Alam, Banda Aceh</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="social-media-panel card-glass">
+                            <h4>Sosial Media</h4>
+                            <div class="social-icons">
+                                <a href="mailto:nuraisyah2456@gmail.com" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                                <a href="https://wa.me/6282215857067" class="social-icon" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="contact-form-panel card-glass reveal">
+                        <h3>Kirim Pesan</h3>
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Nama Lengkap</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-user input-icon"></i>
+                                    <input type="text" id="name" name="name" required placeholder="Masukkan nama Anda">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Alamat Email</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-envelope input-icon"></i>
+                                    <input type="email" id="email" name="email" required placeholder="Masukkan email Anda">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Pesan Anda</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-comment-alt input-icon textarea-icon"></i>
+                                    <textarea id="message" name="message" rows="5" required placeholder="Tuliskan pesan Anda di sini..."></textarea>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block" id="formSubmitBtn">
+                                <span class="btn-text">Kirim Pesan</span>
+                                <i class="fas fa-paper-plane btn-icon"></i>
+                            </button>
+                            <div class="form-feedback" id="formFeedback"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Nur Aisyah. All Rights Reserved.</p>
+            <p>Didesain dengan <i class="fas fa-heart text-gradient-icon"></i> dan kode murni.</p>
+        </div>
+    </footer>
+
+    <!-- Embedded Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // ==========================================================================
+            // THEME SWITCHER
+            // ==========================================================================
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            
+            // Check local storage for theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                body.className = savedTheme;
+            } else {
+                // Default to dark theme
+                body.className = 'dark-theme';
+            }
+
+            themeToggle.addEventListener('click', () => {
+                if (body.classList.contains('dark-theme')) {
+                    body.classList.replace('dark-theme', 'light-theme');
+                    localStorage.setItem('theme', 'light-theme');
+                } else {
+                    body.classList.replace('light-theme', 'dark-theme');
+                    localStorage.setItem('theme', 'dark-theme');
+                }
+            });
+
+            // ==========================================================================
+            // MOBILE NAVIGATION MENU
+            // ==========================================================================
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('navMenu');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+
+            // ==========================================================================
+            // NAVBAR STICKY ON SCROLL
+            // ==========================================================================
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // ==========================================================================
+            // TYPING EFFECT
+            // ==========================================================================
+            const typingTextElement = document.getElementById('typingText');
+            const roles = [
+                'Teknik Komputer',
+                'Deep Learning Specialist',
+                'Pengolahan Citra',
+                'UI/UX Designer'
+            ];
+            let roleIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let typingSpeed = 100;
+
+            function type() {
+                const currentRole = roles[roleIndex];
+                
+                if (isDeleting) {
+                    typingTextElement.textContent = currentRole.substring(0, charIndex - 1);
+                    charIndex--;
+                    typingSpeed = 50; // Faster deletion
+                } else {
+                    typingTextElement.textContent = currentRole.substring(0, charIndex + 1);
+                    charIndex++;
+                    typingSpeed = 100; // Normal typing
+                }
+
+                if (!isDeleting && charIndex === currentRole.length) {
+                    typingSpeed = 2000; // Wait before starting delete
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    roleIndex = (roleIndex + 1) % roles.length;
+                    typingSpeed = 500; // Pause before typing next role
+                }
+
+                setTimeout(type, typingSpeed);
+            }
+
+            // Start typing animation
+            if (typingTextElement) {
+                type();
+            }
+
+            // ==========================================================================
+            // ACTIVE NAVIGATION LINKS HIGHLIGHT
+            // ==========================================================================
+            const sections = document.querySelectorAll('section');
+            
+            window.addEventListener('scroll', () => {
+                let currentSectionId = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 120;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                        currentSectionId = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentSectionId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // ==========================================================================
+            // SCROLL REVEAL ANIMATIONS (Intersection Observer)
+            // ==========================================================================
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); // Trigger once
+                    }
+                });
+            }, {
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            reveals.forEach(element => {
+                revealObserver.observe(element);
+            });
+
+            // ==========================================================================
+            // DYNAMIC SKILL BARS ANIMATION
+            // ==========================================================================
+            const skillSection = document.getElementById('skills');
+            const skillBars = document.querySelectorAll('.skill-bar-fill');
+            
+            // Store original widths and set to 0 initially
+            const originalWidths = [];
+            skillBars.forEach((bar, index) => {
+                originalWidths[index] = bar.style.width;
+                bar.style.width = '0';
+            });
+
+            const animateSkillBars = () => {
+                skillBars.forEach((bar, index) => {
+                    bar.style.width = originalWidths[index];
+                });
+            };
+
+            const skillsObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateSkillBars();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.2
+            });
+
+            if (skillSection) {
+                skillsObserver.observe(skillSection);
+            }
+
+            // ==========================================================================
+            // CONTACT FORM INTERACTION
+            // ==========================================================================
+            const contactForm = document.getElementById('contactForm');
+            const formFeedback = document.getElementById('formFeedback');
+            const submitBtn = document.getElementById('formSubmitBtn');
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    // Disable submit button and show loading state
+                    submitBtn.disabled = true;
+                    const originalBtnText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = `
+                        <span class="btn-text">Mengirim...</span>
+                        <i class="fas fa-circle-notch fa-spin btn-icon"></i>
+                    `;
+                    
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const message = document.getElementById('message').value;
+
+                    // Mock network latency (1.5s)
+                    setTimeout(() => {
+                        // Check simple validation
+                        if (name && email && message) {
+                            formFeedback.textContent = `Terima kasih ${name}, pesan Anda berhasil dikirim! Saya akan segera menghubungi Anda.`;
+                            formFeedback.className = 'form-feedback success';
+                            
+                            // Reset form
+                            contactForm.reset();
+                        } else {
+                            formFeedback.textContent = 'Oops! Harap isi semua formulir dengan benar.';
+                            formFeedback.className = 'form-feedback error';
+                        }
+
+                        // Restore button state
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnText;
+
+                        // Hide feedback message after 5 seconds
+                        setTimeout(() => {
+                            formFeedback.style.display = 'none';
+                            formFeedback.className = 'form-feedback';
+                        }, 5000);
+                        
+                    }, 1500);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
