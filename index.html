@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Interaktif - Fadhil, S.Pd.</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            teal: '#14b8a6',
+                            indigo: '#6366f1',
+                            darkbg: '#020617',
+                            lightbg: '#f8fafc'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Glassmorphism custom classes */
+        .glass-dark {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .glass-light {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100 light:bg-slate-50 light:text-slate-900">
+
+    <!-- HEADER -->
+    <header id="main-header" class="sticky top-0 z-50 backdrop-blur-md border-b transition-colors duration-300 bg-slate-950/80 border-slate-800 dark:bg-slate-950/80 dark:border-slate-800 light:bg-white/80 light:border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Brand Logo -->
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-500 to-indigo-600 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-teal-500/20">
+                    F
+                </div>
+                <div>
+                    <span class="font-bold text-lg tracking-wide block transition-colors duration-300 dark:text-white light:text-slate-900">Fadhil, S.Pd.</span>
+                    <span class="text-xs text-teal-500 font-semibold tracking-wider uppercase block">Pendidikan Teknologi Informasi</span>
+                </div>
+            </div>
+            
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#about" class="hover:text-teal-500 transition-colors dark:text-slate-300 light:text-slate-650">Tentang</a>
+                <a href="#role-matcher" class="hover:text-teal-500 transition-colors flex items-center gap-1 dark:text-slate-300 light:text-slate-650">
+                    <svg class="w-4 h-4 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                    Career Matcher
+                </a>
+                <a href="#experience" class="hover:text-teal-500 transition-colors dark:text-slate-300 light:text-slate-650">Pengalaman</a>
+                <a href="#skills" class="hover:text-teal-500 transition-colors dark:text-slate-300 light:text-slate-650">Keterampilan</a>
+                <a href="#certifications" class="hover:text-teal-500 transition-colors dark:text-slate-300 light:text-slate-650">Sertifikasi</a>
+            </nav>
+
+            <!-- Quick Action & Theme Switcher -->
+            <div class="flex items-center space-x-3">
+                <!-- Theme Toggle Button -->
+                <button 
+                    id="theme-toggle" 
+                    class="p-2.5 rounded-xl border transition-all bg-slate-900 border-slate-800 text-yellow-400 hover:bg-slate-800 dark:bg-slate-900 dark:border-slate-800 dark:text-yellow-400 dark:hover:bg-slate-800 light:bg-slate-100 light:border-slate-200 light:text-indigo-600 light:hover:bg-slate-200"
+                    title="Ganti Tema"
+                    onclick="toggleTheme()"
+                >
+                    <!-- Sun Icon (Active in Dark Mode) -->
+                    <svg id="sun-icon" class="w-5 h-5 block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg>
+                    <!-- Moon Icon (Active in Light Mode) -->
+                    <svg id="moon-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                </button>
+                
+                <a 
+                    href="#contact" 
+                    class="bg-gradient-to-r from-teal-500 to-indigo-600 hover:from-teal-600 hover:to-indigo-700 text-white font-semibold text-sm px-4 py-2.5 rounded-xl shadow-md transition-all hover:shadow-lg hover:shadow-teal-500/10"
+                >
+                    Hubungi
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="about" class="relative pt-12 pb-20 px-4 overflow-hidden">
+        <!-- Decorative Glow Backgrounds -->
+        <div class="absolute top-1/4 left-1/12 w-96 h-96 bg-teal-500/10 rounded-full filter blur-[100px] pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/12 w-96 h-96 bg-indigo-500/10 rounded-full filter blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Hero Left Content -->
+            <div class="lg:col-span-7 space-y-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-teal-500/10 text-teal-400 border border-teal-500/20">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                    Lulusan Terbaik / Cumlaude (3.5 Tahun)
+                </div>
+                
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight transition-colors duration-300 dark:text-white light:text-slate-900">
+                    Menghubungkan <span class="bg-gradient-to-r from-teal-400 to-indigo-500 bg-clip-text text-transparent font-black">Teknologi</span>, Administrasi, & Pelayanan.
+                </h1>
+                
+                <p id="hero-paragraph" class="text-base md:text-lg text-slate-400 transition-colors duration-300 dark:text-slate-400 light:text-slate-600 leading-relaxed max-w-2xl">
+                    Halo, saya <strong>Fadhil</strong>. Lulusan S1 Pendidikan Teknologi Informasi dari UIN Ar-Raniry Banda Aceh. 
+                    Saya menggabungkan latar belakang analisis teknologi, manajemen data administratif yang presisi, 
+                    serta pengalaman praktis dalam pelayanan pelanggan prima (Service Excellence).
+                </p>
+
+                <!-- Quick Badges Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4">
+                    <div class="p-3.5 rounded-xl border flex items-center space-x-3 bg-slate-900/50 border-slate-800 dark:bg-slate-900/50 dark:border-slate-800 light:bg-white light:border-slate-100 light:shadow-sm">
+                        <div class="text-teal-400 flex-shrink-0">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l9-5-9-5-9 5 9 5zm0 0v6m0-6L3 9m9 9l9-5m-9 5v6"></path></svg>
+                        </div>
+                        <div>
+                            <span class="block font-bold text-sm transition-colors duration-300 dark:text-white light:text-slate-800">3.5 Tahun</span>
+                            <span class="text-xs text-slate-500">Selesai Kuliah</span>
+                        </div>
+                    </div>
+                    <div class="p-3.5 rounded-xl border flex items-center space-x-3 bg-slate-900/50 border-slate-800 dark:bg-slate-900/50 dark:border-slate-800 light:bg-white light:border-slate-100 light:shadow-sm">
+                        <div class="text-indigo-400 flex-shrink-0">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
+                        </div>
+                        <div>
+                            <span class="block font-bold text-sm transition-colors duration-300 dark:text-white light:text-slate-800">Cumlaude</span>
+                            <span class="text-xs text-slate-500">Predikat Akademik</span>
+                        </div>
+                    </div>
+                    <div class="p-3.5 rounded-xl border flex items-center space-x-3 col-span-2 sm:col-span-1 bg-slate-900/50 border-slate-800 dark:bg-slate-900/50 dark:border-slate-800 light:bg-white light:border-slate-100 light:shadow-sm">
+                        <div class="text-amber-400 flex-shrink-0">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <div>
+                            <span class="block font-bold text-sm transition-colors duration-300 dark:text-white light:text-slate-800">Multitalenta</span>
+                            <span class="text-xs text-slate-500">IT, Admin & CS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Actions -->
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a 
+                        href="#role-matcher" 
+                        class="px-6 py-3.5 rounded-xl font-bold text-center text-white bg-gradient-to-r from-teal-500 to-indigo-600 hover:from-teal-600 hover:to-indigo-700 transition-all transform hover:-translate-y-0.5 shadow-lg shadow-teal-500/10 flex items-center justify-center gap-2"
+                    >
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        Cari Kecocokan Kerja
+                    </a>
+                    <a 
+                        href="#experience" 
+                        class="px-6 py-3.5 rounded-xl font-bold text-center border transition-all hover:-translate-y-0.5 flex items-center justify-center gap-2 bg-slate-900 border-slate-800 text-slate-100 hover:bg-slate-800 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-100 dark:hover:bg-slate-800 light:bg-white light:border-slate-200 light:text-slate-800 light:hover:bg-slate-50 light:shadow-sm"
+                    >
+                        Lihat Pengalaman Kerja
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Right Content: Visual Photo Card with Interactive Uploader -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative p-6 rounded-3xl border w-full max-w-sm transition-all bg-slate-900/70 border-slate-800 dark:bg-slate-900/70 dark:border-slate-800 light:bg-white light:border-slate-200 light:shadow-xl">
+                    
+                    <!-- Interactive Photo Area -->
+                    <div id="photo-box" class="relative aspect-[3/4] w-full rounded-2xl overflow-hidden flex flex-col items-center justify-center border-2 border-dashed bg-slate-950 border-slate-800 dark:bg-slate-950 dark:border-slate-800 light:bg-slate-50 light:border-slate-300">
+                        
+                        <!-- Upload Placeholder Mode -->
+                        <div id="upload-placeholder" class="p-6 text-center space-y-4">
+                            <div class="w-16 h-16 rounded-full bg-teal-500/10 text-teal-400 mx-auto flex items-center justify-center">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                            </div>
+                            <div>
+                                <p class="font-bold text-sm transition-colors duration-300 dark:text-white light:text-slate-800">Visualisasikan Foto Anda</p>
+                                <p class="text-xs text-slate-500 mt-1 leading-relaxed">Unggah foto formal merah (atau foto lainnya) di sini untuk melihat visualisasi halaman resume utuh.</p>
+                            </div>
+                            <label class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-teal-500 hover:bg-teal-600 text-white text-xs font-semibold cursor-pointer transition-colors shadow-md">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                                Pilih Foto
+                                <input type="file" id="profile-input" accept="image/*" class="hidden" onchange="handleImageUpload(event)">
+                            </label>
+                        </div>
+
+                        <!-- Active Image Container (initially hidden) -->
+                        <div id="image-wrapper" class="hidden w-full h-full relative">
+                            <img id="profile-img-preview" src="#" alt="Profil Fadhil" class="w-full h-full object-cover">
+                            <button 
+                                onclick="removeProfileImage()"
+                                class="absolute bottom-3 right-3 px-3 py-1.5 rounded-lg bg-red-500 hover:bg-red-600 text-white text-xs font-bold transition-all shadow-md flex items-center gap-1"
+                            >
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                                Hapus
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Profile Card Footer Info -->
+                    <div class="mt-5 text-center space-y-1">
+                        <h3 class="font-extrabold text-xl transition-colors duration-300 dark:text-white light:text-slate-900">Fadhil, S.Pd.</h3>
+                        <p class="text-xs text-teal-500 font-semibold tracking-wider uppercase">Pendidikan Teknologi Informasi</p>
+                        <div class="flex justify-center gap-4 text-xs text-slate-500 pt-3 border-t border-slate-800/20 mt-3 dark:border-slate-800/40 light:border-slate-200">
+                            <span class="flex items-center gap-1 font-medium hover:text-teal-400 transition-colors">
+                                <svg class="w-3 h-3 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                                082259397153
+                            </span>
+                            <span class="flex items-center gap-1 font-medium hover:text-teal-400 transition-colors">
+                                <svg class="w-3 h-3 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                fadhillb@gmail.com
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- INTERACTIVE SECTION: CAREER PATHWAY MATCHER -->
+    <section id="role-matcher" class="py-16 px-4 border-y bg-slate-900/40 border-slate-900 dark:bg-slate-900/40 dark:border-slate-900 light:bg-slate-100 light:border-slate-200">
+        <div class="max-w-6xl mx-auto space-y-8">
+          
+            <div class="text-center max-w-2xl mx-auto space-y-3">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 uppercase">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    Interactive Tool
+                </div>
+                <h2 class="text-3xl font-extrabold tracking-tight transition-colors duration-300 dark:text-white light:text-slate-900">Pencari Kecocokan Peran Kerja</h2>
+                <p class="text-sm text-slate-400 transition-colors duration-300 dark:text-slate-400 light:text-slate-600">
+                    Saya memiliki spektrum keahlian yang fleksibel. Pilih bidang pekerjaan Anda di bawah ini, dan lihat secara dinamis bagaimana riwayat saya cocok dengan kebutuhan perusahaan Anda!
+                </p>
+            </div>
+
+            <!-- Role Filter Tabs -->
+            <div class="flex flex-wrap justify-center gap-3">
+                <button 
+                    onclick="filterRole('all')" 
+                    id="btn-filter-all"
+                    class="filter-tab flex items-center gap-2 px-5 py-3 rounded-2xl text-sm font-bold border transition-all bg-gradient-to-r from-teal-500 to-indigo-600 text-white border-transparent shadow-lg shadow-teal-500/10 scale-[1.02]"
+                >
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 
