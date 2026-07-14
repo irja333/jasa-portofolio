@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Safira Mustaqillah - IT Support & Educator</title>
+    <link rel="icon" type="image/jpeg" href="profile.jpeg">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link
@@ -441,6 +443,21 @@
             color: #0f172a !important;
         }
 
+        #toast span {
+            color: #0f172a !important;
+        }
+
+        /* Mobile menu toggle container visibility override */
+        #mobile-toggle-container {
+            display: flex !important;
+        }
+
+        @media (min-width: 768px) {
+            #mobile-toggle-container {
+                display: none !important;
+            }
+        }
+
         /* Print Mode Override */
         @media print {
 
@@ -508,14 +525,14 @@
     class="bg-dark text-slate-200 font-sans antialiased overflow-x-hidden selection:bg-blue-500/20 selection:text-blue-200">
 
     <!-- Glowing background lights -->
-    <div class="glow-orb w-[400px] h-[400px] bg-blue-600 top-20 right-[-100px] z-0"></div>
-    <div class="glow-orb w-[500px] h-[500px] bg-purple-800 top-[600px] left-[-200px] z-0" style="animation-delay: 2s;">
-    </div>
-    <div class="glow-orb w-[400px] h-[400px] bg-cyan-600 bottom-40 right-[-50px] z-0" style="animation-delay: 4s;">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="glow-orb w-[400px] h-[400px] bg-blue-600 top-20 right-[-100px]"></div>
+        <div class="glow-orb w-[500px] h-[500px] bg-purple-800 top-[600px] left-[-200px]" style="animation-delay: 2s;"></div>
+        <div class="glow-orb w-[400px] h-[400px] bg-cyan-600 bottom-40 right-[-50px]" style="animation-delay: 4s;"></div>
     </div>
 
-    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav class="fixed inset-x-0 z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex-shrink-0 flex items-center">
                     <a href="#home"
@@ -537,22 +554,24 @@
                     <button onclick="toggleTheme()"
                         class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-900/40 border border-slate-200 dark:border-blue-900/20 text-slate-600 dark:text-slate-300 flex items-center justify-center hover:scale-105 transition-all duration-300 focus:outline-none"
                         title="Ubah Tema">
-                        <i class="fas fa-sun theme-toggle-icon"></i>
+                        <i class="fa-solid fa-sun theme-toggle-icon"></i>
                     </button>
                     <a href="#contact"
                         class="px-5 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-full hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-0.5 transition-all duration-300 font-medium">Kontak</a>
                 </div>
 
                 <!-- Mobile menu button & Edit button -->
-                <div class="md:hidden flex items-center gap-3">
+                <div id="mobile-toggle-container" class="md:hidden flex items-center gap-3">
                     <!-- Mobile Theme Toggle -->
                     <button onclick="toggleTheme()"
                         class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-900/40 border border-slate-200 dark:border-blue-900/20 text-slate-600 dark:text-slate-300 flex items-center justify-center focus:outline-none"
                         title="Ubah Tema">
-                        <i class="fas fa-sun theme-toggle-icon text-sm"></i>
+                        <i class="fa-solid fa-sun theme-toggle-icon text-sm"></i>
                     </button>
-                    <button id="mobile-menu-button" class="text-slate-300 hover:text-white focus:outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
+                    <button id="mobile-menu-button"
+                        class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-900/40 border border-slate-200 dark:border-blue-900/20 text-slate-600 dark:text-slate-300 flex items-center justify-center hover:scale-105 transition-all duration-300 focus:outline-none"
+                        title="Menu">
+                        <i class="fa-solid fa-bars text-base"></i>
                     </button>
                 </div>
             </div>
@@ -560,7 +579,7 @@
 
         <!-- Mobile Menu Panel -->
         <div id="mobile-menu" class="hidden md:hidden bg-[#050918]/95 backdrop-blur-lg border-t border-blue-900/20">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <div class="px-4 sm:px-6 pt-2 pb-3 space-y-1">
                 <a href="#home"
                     class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-blue-950/40 rounded-md">Beranda</a>
                 <a href="#about"
@@ -580,7 +599,7 @@
 
     <!-- Hero Section -->
     <section id="home"
-        class="pt-32 pb-20 md:pt-40 md:pb-28 px-4 flex items-center min-h-screen relative overflow-hidden z-10">
+        class="pt-32 pb-20 md:pt-40 md:pb-28 px-4 sm:px-6 md:px-8 flex items-center min-h-screen relative overflow-hidden z-10">
 
         <div class="max-w-7xl mx-auto w-full relative z-10 flex flex-col-reverse md:flex-row items-center gap-12">
 
@@ -606,12 +625,12 @@
                 <div class="flex flex-wrap justify-center md:justify-start gap-4">
                     <a href="CV SAFIRA MUSTAQILLAH TERBARU JUNI 2026.pdf"
                         download="CV SAFIRA MUSTAQILLAH TERBARU JUNI 2026.pdf"
-                        class="px-8 py-3.5 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-full font-bold hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-1 transition-all duration-300 flex items-center gap-2">
+                        class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-full font-bold hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
                         <span>Unduh CV</span>
                         <i class="fas fa-download"></i>
                     </a>
                     <a href="#contact"
-                        class="px-8 py-3.5 bg-slate-900/60 text-slate-300 border border-blue-900/30 rounded-full font-bold hover:bg-slate-800/60 hover:text-white hover:-translate-y-1 transition-all duration-300">
+                        class="w-full sm:w-auto px-8 py-3.5 bg-slate-900/60 text-slate-300 border border-blue-900/30 rounded-full font-bold hover:bg-slate-800/60 hover:text-white hover:-translate-y-1 transition-all duration-300 flex items-center justify-center">
                         Hubungi Saya
                     </a>
                 </div>
@@ -627,7 +646,7 @@
 
                     <div
                         class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-8 border-slate-900 shadow-2xl shadow-blue-500/10 relative z-10 bg-slate-900 flex items-center justify-center">
-                        <img src="safira.jpeg" alt="Safira Mustaqillah" class="w-full h-full object-cover">
+                        <img src="profile.jpeg" alt="Safira Mustaqillah" class="w-full h-full object-cover">
                     </div>
 
                     <!-- Floating badge -->
@@ -649,7 +668,7 @@
 
     <!-- About Section -->
     <section id="about" class="py-20 bg-gradient-to-b from-dark to-[#070b1e] border-b border-blue-900/10 z-10 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 relative">
             <div class="text-center mb-16 fade-in-up">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Tentang Saya</h2>
                 <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full"></div>
@@ -657,16 +676,16 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
                 <div class="space-y-6 fade-in-up">
-                    <p class="text-slate-300 leading-relaxed text-lg text-justify editable-text" data-key="about-para1">
+                    <p class="text-slate-300 leading-relaxed text-base md:text-lg text-left md:text-justify editable-text" data-key="about-para1">
                         Saya adalah <strong>Fresh graduate Pendidikan Teknologi Informasi (2025)</strong> dari UIN
                         Ar-Raniry Banda Aceh. Saya memiliki pencapaian dalam penyelesaian proyek teknologi pendidikan
                         dan dukungan teknis pada lingkungan sekolah.
                     </p>
-                    <p class="text-slate-300 leading-relaxed text-lg text-justify editable-text" data-key="about-para2">
+                    <p class="text-slate-300 leading-relaxed text-base md:text-lg text-left md:text-justify editable-text" data-key="about-para2">
                         Saya memiliki kualitas kerja yang disiplin, teliti, dan mampu cepat beradaptasi dalam menangani
                         berbagai kebutuhan operasional IT.
                     </p>
-                    <p class="text-slate-300 leading-relaxed text-lg text-justify font-medium editable-text"
+                    <p class="text-slate-300 leading-relaxed text-base md:text-lg text-left md:text-justify font-medium editable-text"
                         data-key="about-para3">
                         Ambisi saya adalah terus mengembangkan kompetensi di bidang layanan IT dan administrasi sistem
                         untuk memberikan dampak positif pada instansi tempat saya bernaung.
@@ -822,7 +841,7 @@
     <!-- Education Section -->
     <section id="education"
         class="py-20 bg-gradient-to-b from-[#070b1e] to-dark z-10 relative border-b border-blue-900/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 relative">
             <div class="text-center mb-16 fade-in-up">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Pendidikan</h2>
                 <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full"></div>
@@ -917,7 +936,7 @@
 
                 <!-- Scientific Publications Card (Full-width below) -->
                 <div class="md:col-span-2 w-full fade-in-up mt-4">
-                    <div class="glass-card rounded-3xl p-8 border-gradient relative overflow-hidden">
+                    <div class="glass-card rounded-3xl p-6 md:p-8 border-gradient relative overflow-hidden">
                         <div class="absolute -right-10 -top-10 text-blue-500/5 opacity-20 pointer-events-none">
                             <i class="fas fa-book-open text-9xl"></i>
                         </div>
@@ -949,7 +968,7 @@
                             <div>
                                 <h4 class="text-xs font-bold text-slate-350 uppercase tracking-widest mb-2">Abstrak &
                                     Fokus Penelitian</h4>
-                                <p class="text-slate-300 text-justify text-sm leading-relaxed editable-text"
+                                <p class="text-slate-300 text-left md:text-justify text-sm leading-relaxed editable-text"
                                     data-key="pub-abstract">
                                     Penelitian ini mengevaluasi kesiapan dan ketahanan infrastruktur teknologi informasi
                                     perguruan tinggi (studi kasus ICT UIN Ar-Raniry) terhadap ancaman serangan
@@ -1003,7 +1022,7 @@
     <!-- Certifications Section -->
     <section id="certifications"
         class="py-20 bg-gradient-to-b from-dark to-[#070b1e] z-10 relative border-b border-blue-900/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
             <div class="text-center mb-16 fade-in-up">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Pelatihan & Sertifikasi</h2>
                 <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full"></div>
@@ -1079,7 +1098,7 @@
     <!-- Experience Section -->
     <section id="experience"
         class="py-20 bg-gradient-to-b from-[#070b1e] to-dark z-10 relative border-b border-blue-900/10">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
             <div class="text-center mb-16 fade-in-up">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Pengalaman Kerja</h2>
                 <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full mb-4"></div>
@@ -1201,7 +1220,7 @@
     <!-- Skills Section -->
     <section id="skills"
         class="py-20 bg-gradient-to-b from-dark to-[#070b1e] z-10 relative border-b border-blue-900/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
             <div class="text-center mb-10 fade-in-up">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Keahlian Utama</h2>
                 <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full mb-4"></div>
@@ -1217,7 +1236,7 @@
                         class="w-full px-5 py-3 rounded-full bg-slate-950 border border-blue-900/30 text-slate-100 focus:outline-none focus:border-blue-500 transition placeholder-slate-600 text-sm">
                     <i class="fas fa-search absolute right-5 top-4 text-slate-500"></i>
                 </div>
-                <div class="flex justify-center gap-2">
+                <div class="flex flex-wrap justify-center gap-2">
                     <button onclick="setSkillCategory('all')" id="cat-btn-all"
                         class="skill-cat-btn px-4 py-1.5 rounded-full text-xs font-semibold transition bg-blue-500 text-white border border-blue-500/20">Semua</button>
                     <button onclick="setSkillCategory('it')" id="cat-btn-it"
@@ -1232,7 +1251,7 @@
 
                 <!-- Educational Skills -->
                 <div id="col-skills-edu"
-                    class="bg-gradient-to-br from-slate-900/40 to-blue-950/20 p-8 rounded-3xl border border-blue-900/20 backdrop-blur-md fade-in-up">
+                    class="bg-gradient-to-br from-slate-900/40 to-blue-950/20 p-5 sm:p-8 rounded-3xl border border-blue-900/20 backdrop-blur-md fade-in-up">
                     <div
                         class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center text-primary text-2xl mb-6 border border-blue-500/20">
                         <i class="fas fa-chalkboard-teacher"></i>
@@ -1273,7 +1292,7 @@
 
                 <!-- Technical Skills -->
                 <div id="col-skills-it"
-                    class="bg-gradient-to-br from-slate-900/40 to-purple-950/20 p-8 rounded-3xl border border-purple-900/20 backdrop-blur-md fade-in-up"
+                    class="bg-gradient-to-br from-slate-900/40 to-purple-950/20 p-5 sm:p-8 rounded-3xl border border-purple-900/20 backdrop-blur-md fade-in-up"
                     style="transition-delay: 200ms;">
                     <div
                         class="w-14 h-14 bg-purple-500/10 rounded-2xl flex items-center justify-center text-purple-400 text-2xl mb-6 border border-purple-500/20">
@@ -1333,12 +1352,12 @@
         <div class="absolute inset-0 opacity-5 pointer-events-none"
             style="background-image: radial-gradient(#3b82f6 1px, transparent 1px); background-size: 30px 30px;"></div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 
                 <div class="fade-in-up">
                     <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white">Mari Terhubung</h2>
-                    <p class="text-slate-400 text-lg mb-10 max-w-md editable-text" data-key="contact-desc">
+                    <p class="text-slate-400 text-base md:text-lg mb-10 max-w-md editable-text" data-key="contact-desc">
                         Saya selalu terbuka untuk mendiskusikan peluang pekerjaan, kolaborasi proyek, atau sekadar
                         berbagi pengetahuan seputar IT dan pendidikan.
                     </p>
@@ -1394,7 +1413,7 @@
                 </div>
 
                 <!-- Message Form (Visual Only / Mailto functionality) -->
-                <div class="glass-card rounded-3xl p-8 md:p-10 border-gradient fade-in-up"
+                <div class="glass-card rounded-3xl p-6 md:p-10 border-gradient fade-in-up"
                     style="transition-delay: 200ms;">
                     <h3 class="text-2xl font-bold mb-6 text-white">Kirim Pesan Cepat</h3>
                     <form onsubmit="sendEmail(event)" class="space-y-5">
@@ -1430,7 +1449,7 @@
 
     <!-- Footer -->
     <footer class="bg-[#02050e] text-slate-500 py-8 border-t border-blue-900/10 text-center relative z-10">
-        <div class="max-w-7xl mx-auto px-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
             <p>&copy; 2026 Safira Mustaqillah. All Rights Reserved.</p>
             <p class="text-xs mt-2 text-slate-600">Dibuat sebagai portofolio profesional premium.</p>
         </div>
@@ -1465,12 +1484,12 @@
             if (html.classList.contains('light')) {
                 html.classList.remove('light');
                 html.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
+                localStorage.setItem('theme-safira', 'dark');
                 updateThemeIcon('dark');
             } else {
                 html.classList.remove('dark');
                 html.classList.add('light');
-                localStorage.setItem('theme', 'light');
+                localStorage.setItem('theme-safira', 'light');
                 updateThemeIcon('light');
             }
         }
@@ -1479,23 +1498,28 @@
             const icons = document.querySelectorAll('.theme-toggle-icon');
             icons.forEach(icon => {
                 if (theme === 'light') {
-                    icon.className = 'fas fa-moon theme-toggle-icon';
+                    icon.className = 'fa-solid fa-moon theme-toggle-icon';
                 } else {
-                    icon.className = 'fas fa-sun theme-toggle-icon';
+                    icon.className = 'fa-solid fa-sun theme-toggle-icon';
                 }
             });
         }
 
         // Initialize theme immediately to prevent layout shifts
         (function () {
-            const savedTheme = localStorage.getItem('theme') || 'dark';
+            let savedTheme = localStorage.getItem('theme-safira') || localStorage.getItem('theme') || 'dark';
+            if (savedTheme === 'light-theme') savedTheme = 'light';
+            if (savedTheme === 'dark-theme') savedTheme = 'dark';
+            
             const htmlElement = document.documentElement;
             if (savedTheme === 'light') {
                 htmlElement.classList.remove('dark');
                 htmlElement.classList.add('light');
+                localStorage.setItem('theme-safira', 'light');
             } else {
                 htmlElement.classList.remove('light');
                 htmlElement.classList.add('dark');
+                localStorage.setItem('theme-safira', 'dark');
             }
 
             document.addEventListener('DOMContentLoaded', () => {

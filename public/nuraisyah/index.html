@@ -1400,6 +1400,10 @@
 
         /* Up to 480px (Small Phones) */
         @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
             .hero-title {
                 font-size: 2rem;
             }
@@ -1485,9 +1489,11 @@
 </head>
 <body class="dark-theme">
     <!-- Background Blur Elements -->
-    <div class="blob-bg blob-1"></div>
-    <div class="blob-bg blob-2"></div>
-    <div class="blob-bg blob-3"></div>
+    <div class="blob-wrapper" style="position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: -1;">
+        <div class="blob-bg blob-1"></div>
+        <div class="blob-bg blob-2"></div>
+        <div class="blob-bg blob-3"></div>
+    </div>
 
     <!-- Header / Navbar -->
     <header class="navbar">
@@ -1924,21 +1930,22 @@
             const body = document.body;
             
             // Check local storage for theme preference
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme) {
-                body.className = savedTheme;
+            let savedTheme = localStorage.getItem('theme-aisyah') || localStorage.getItem('theme');
+            if (savedTheme === 'light' || savedTheme === 'light-theme') {
+                body.className = 'light-theme';
+                localStorage.setItem('theme-aisyah', 'light-theme');
             } else {
-                // Default to dark theme
                 body.className = 'dark-theme';
+                localStorage.setItem('theme-aisyah', 'dark-theme');
             }
 
             themeToggle.addEventListener('click', () => {
                 if (body.classList.contains('dark-theme')) {
                     body.classList.replace('dark-theme', 'light-theme');
-                    localStorage.setItem('theme', 'light-theme');
+                    localStorage.setItem('theme-aisyah', 'light-theme');
                 } else {
                     body.classList.replace('light-theme', 'dark-theme');
-                    localStorage.setItem('theme', 'dark-theme');
+                    localStorage.setItem('theme-aisyah', 'dark-theme');
                 }
             });
 

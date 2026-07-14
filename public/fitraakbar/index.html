@@ -1591,6 +1591,10 @@
         grid-template-columns: 1fr;
         gap: 20px;
       }
+
+      .container {
+        padding: 0 16px;
+      }
     }
   </style>
 </head>
@@ -1598,9 +1602,11 @@
 <body class="dark">
 
   <!-- Background Orbs -->
-  <div class="bg-glow-orb" style="top: 10%; left: -10%;"></div>
-  <div class="bg-glow-orb" style="top: 40%; right: -10%;"></div>
-  <div class="bg-glow-orb" style="top: 80%; left: 20%;"></div>
+  <div class="orb-wrapper" style="position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: -1;">
+    <div class="bg-glow-orb" style="top: 10%; left: -10%;"></div>
+    <div class="bg-glow-orb" style="top: 40%; right: -10%;"></div>
+    <div class="bg-glow-orb" style="top: 80%; left: 20%;"></div>
+  </div>
 
   <!-- ==========================================================================
      NAVBAR
@@ -2119,7 +2125,7 @@
             <div class="contact-detail-icon"><i class="fa-solid fa-phone"></i></div>
             <div class="contact-detail-texts">
               <span>Nomor HP / WA</span>
-              <a href="https://wa.me/81914615649" target="_blank">081914615649</a>
+              <a href="https://wa.me/6287847140554" target="_blank">0878-4714-0554</a>
             </div>
           </div>
 
@@ -2196,9 +2202,13 @@
     const bodyElement = document.body;
 
     // Load saved theme or default to dark
-    const savedTheme = localStorage.getItem('theme') || 'dark';
+    let savedTheme = localStorage.getItem('theme-fitra') || localStorage.getItem('theme') || 'dark';
+    if (savedTheme === 'light-theme') savedTheme = 'light';
+    if (savedTheme === 'dark-theme') savedTheme = 'dark';
+
     htmlElement.className = savedTheme;
     bodyElement.className = savedTheme;
+    localStorage.setItem('theme-fitra', savedTheme);
     updateThemeIcon(savedTheme);
 
     themeToggleBtn.addEventListener('click', () => {
@@ -2207,7 +2217,7 @@
       
       htmlElement.className = newTheme;
       bodyElement.className = newTheme;
-      localStorage.setItem('theme', newTheme);
+      localStorage.setItem('theme-fitra', newTheme);
       updateThemeIcon(newTheme);
     });
 
