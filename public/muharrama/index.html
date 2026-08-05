@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +15,8 @@
     <!-- Google Fonts: Plus Jakarta Sans & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -62,87 +64,128 @@
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(226, 232, 240, 0.8);
         }
+
         .glass-card-hover:hover {
             transform: translateY(-4px);
             box-shadow: 0 20px 25px -5px rgba(14, 165, 233, 0.12), 0 8px 10px -6px rgba(14, 165, 233, 0.08);
             border-color: rgba(56, 189, 248, 0.5);
         }
+
         .gradient-text {
             background: linear-gradient(135deg, #0284c7 0%, #0d9488 50%, #2563eb 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         .bg-mesh {
             background-color: #f8fafc;
-            background-image: 
+            background-image:
                 radial-gradient(at 0% 0%, rgba(224, 242, 254, 0.8) 0px, transparent 50%),
                 radial-gradient(at 100% 0%, rgba(209, 250, 229, 0.7) 0px, transparent 50%),
                 radial-gradient(at 50% 100%, rgba(238, 242, 255, 0.8) 0px, transparent 50%);
         }
     </style>
 </head>
+
 <body class="bg-mesh text-slate-800 font-sans antialiased min-h-screen selection:bg-brand-500 selection:text-white">
 
     <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 ease-out flex items-center gap-3 bg-slate-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-slate-700">
-        <div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold" id="toast-icon">
+    <div id="toast"
+        class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 ease-out flex items-center gap-3 bg-slate-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-slate-700">
+        <div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold"
+            id="toast-icon">
             <i class="fa-solid fa-check"></i>
         </div>
         <span id="toast-message" class="text-sm font-semibold">Pesan berhasil disalin!</span>
     </div>
 
+    <!-- Floating Direct Quick Contact (Email) -->
+    <div class="fixed bottom-6 left-6 z-40 flex flex-col gap-3 group">
+        <!-- Direct Email Float -->
+        <a href="mailto:muharrama2303@gmail.com?subject=Tawaran%20Pekerjaan%20/%20Diskusi%20Projek"
+            title="Kirim Email Langsung"
+            class="relative flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 text-white shadow-lg hover:scale-110 transition-all duration-300 group/item">
+            <i class="fa-regular fa-envelope text-xl"></i>
+            <span
+                class="absolute left-14 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-lg opacity-0 pointer-events-none group-hover/item:opacity-100 transition-opacity whitespace-nowrap shadow-md border border-slate-700">
+                Kirim Email
+            </span>
+        </a>
+    </div>
+
     <!-- Navigation Header -->
-    <header class="sticky top-0 z-40 w-full backdrop-blur-md bg-white/75 border-b border-slate-200/80 transition-all duration-200">
+    <header
+        class="sticky top-0 z-40 w-full backdrop-blur-md bg-white/75 border-b border-slate-200/80 transition-all duration-200">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <!-- Logo Brand -->
             <a href="#" class="flex items-center gap-3 group">
-                <div class="relative w-11 h-11 rounded-xl overflow-hidden shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform border border-slate-200">
+                <div
+                    class="relative w-11 h-11 rounded-xl overflow-hidden shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform border border-slate-200">
                     <img src="Profil.jpeg" alt="Muharrama Irfandi" class="w-full h-full object-cover object-top">
                 </div>
                 <div>
-                    <span class="text-lg font-bold text-slate-900 tracking-tight block leading-none">Muharrama Irfandi</span>
-                    <span class="text-xs text-brand-600 font-semibold tracking-wide uppercase mt-1 block">Informatika & IoT</span>
+                    <span class="text-lg font-bold text-slate-900 tracking-tight block leading-none">Muharrama
+                        Irfandi</span>
+                    <span class="text-xs text-brand-600 font-semibold tracking-wide uppercase mt-1 block">Informatika &
+                        IoT</span>
                 </div>
             </a>
 
             <!-- Desktop Navigation Links -->
-            <nav class="hidden md:flex items-center gap-1 bg-slate-100/80 p-1.5 rounded-full border border-slate-200/60">
-                <a href="#about" class="px-4 py-2 text-xs font-semibold text-slate-600 hover:text-brand-600 rounded-full hover:bg-white transition-all">Tentang</a>
-                <a href="#iot-skripsi" class="px-4 py-2 text-xs font-semibold text-slate-600 hover:text-brand-600 rounded-full hover:bg-white transition-all">Projek Skripsi</a>
-                <a href="#experience" class="px-4 py-2 text-xs font-semibold text-slate-600 hover:text-brand-600 rounded-full hover:bg-white transition-all">Pengalaman</a>
-                <a href="#skills" class="px-4 py-2 text-xs font-semibold text-slate-600 hover:text-brand-600 rounded-full hover:bg-white transition-all">Kemampuan</a>
-                <a href="#organization" class="px-4 py-2 text-xs font-semibold text-slate-600 hover:text-brand-600 rounded-full hover:bg-white transition-all">Organisasi</a>
+            <nav
+                class="hidden md:flex items-center gap-1 bg-slate-100/80 p-1.5 rounded-full border border-slate-200/60">
+                <a href="#about"
+                    class="px-4 py-2 text-xs font-semibold text-slate-600 hover:text-brand-600 rounded-full hover:bg-white transition-all">Tentang</a>
+                <a href="#iot-skripsi"
+                    class="px-4 py-2 text-xs font-semibold text-slate-600 hover:text-brand-600 rounded-full hover:bg-white transition-all">Projek
+                    Skripsi</a>
+                <a href="#experience"
+                    class="px-4 py-2 text-xs font-semibold text-slate-600 hover:text-brand-600 rounded-full hover:bg-white transition-all">Pengalaman</a>
+                <a href="#skills"
+                    class="px-4 py-2 text-xs font-semibold text-slate-600 hover:text-brand-600 rounded-full hover:bg-white transition-all">Kemampuan</a>
+                <a href="#organization"
+                    class="px-4 py-2 text-xs font-semibold text-slate-600 hover:text-brand-600 rounded-full hover:bg-white transition-all">Organisasi</a>
             </nav>
 
             <!-- Action Call -->
             <div class="hidden sm:flex items-center gap-3">
-                <a href="Muharrama_Irfandi_Resume.pdf" download target="_blank" class="px-4 py-2.5 rounded-xl text-xs font-bold text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 hover:border-brand-300 transition-all flex items-center gap-2 shadow-sm">
+                <a href="Muharrama_Irfandi_Resume.pdf" download target="_blank"
+                    class="px-4 py-2.5 rounded-xl text-xs font-bold text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 hover:border-brand-300 transition-all flex items-center gap-2 shadow-sm">
                     <i class="fa-solid fa-file-arrow-down text-brand-600"></i> Unduh CV
                 </a>
-                <a href="#contact" class="px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-700 hover:to-brand-600 transition-all shadow-md shadow-brand-500/25 flex items-center gap-2">
-                    <i class="fa-paper-plane"></i> Hubungi
+                <a href="#contact"
+                    class="px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-700 hover:to-brand-600 transition-all shadow-md shadow-brand-500/25 flex items-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i> Hubungi
                 </a>
             </div>
 
             <!-- Mobile Menu Toggle Button -->
-            <button id="mobile-menu-btn" class="md:hidden p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 focus:outline-none">
+            <button id="mobile-menu-btn"
+                class="md:hidden p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 focus:outline-none">
                 <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
             </button>
         </div>
 
         <!-- Mobile Dropdown Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-lg border-b border-slate-200 px-6 py-5 space-y-3">
-            <a href="#about" class="block py-2 text-sm font-semibold text-slate-700 hover:text-brand-600">Tentang Saya</a>
-            <a href="#iot-skripsi" class="block py-2 text-sm font-semibold text-slate-700 hover:text-brand-600">Projek Skripsi IoT</a>
-            <a href="#experience" class="block py-2 text-sm font-semibold text-slate-700 hover:text-brand-600">Pengalaman Kerja</a>
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white/95 backdrop-blur-lg border-b border-slate-200 px-6 py-5 space-y-3">
+            <a href="#about" class="block py-2 text-sm font-semibold text-slate-700 hover:text-brand-600">Tentang
+                Saya</a>
+            <a href="#iot-skripsi" class="block py-2 text-sm font-semibold text-slate-700 hover:text-brand-600">Projek
+                Skripsi IoT</a>
+            <a href="#experience"
+                class="block py-2 text-sm font-semibold text-slate-700 hover:text-brand-600">Pengalaman Kerja</a>
             <a href="#skills" class="block py-2 text-sm font-semibold text-slate-700 hover:text-brand-600">Kemampuan</a>
-            <a href="#organization" class="block py-2 text-sm font-semibold text-slate-700 hover:text-brand-600">Organisasi & Relawan</a>
+            <a href="#organization"
+                class="block py-2 text-sm font-semibold text-slate-700 hover:text-brand-600">Organisasi & Relawan</a>
             <div class="pt-3 border-t border-slate-100 flex flex-col gap-2">
-                <a href="Muharrama_Irfandi_Resume.pdf" download target="_blank" class="w-full py-2.5 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 flex items-center justify-center gap-2">
+                <a href="Muharrama_Irfandi_Resume.pdf" download target="_blank"
+                    class="w-full py-2.5 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 flex items-center justify-center gap-2">
                     <i class="fa-solid fa-file-arrow-down text-brand-600"></i> Unduh CV
                 </a>
-                <a href="#contact" class="w-full text-center py-2.5 rounded-xl text-xs font-bold text-white bg-brand-600">
-                    <i class="fa-paper-plane mr-2"></i> Hubungi Saya
+                <a href="#contact"
+                    class="w-full text-center py-2.5 rounded-xl text-xs font-bold text-white bg-brand-600">
+                    <i class="fa-solid fa-paper-plane mr-2"></i> Hubungi Saya
                 </a>
             </div>
         </div>
@@ -152,37 +195,44 @@
     <section id="about" class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                
+
                 <!-- Hero Left Content -->
                 <div class="lg:col-span-7 space-y-6">
                     <!-- Fresh Grad Badge -->
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-100/80 border border-brand-200 text-brand-700 text-xs font-bold tracking-wide">
+                    <div
+                        class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-100/80 border border-brand-200 text-brand-700 text-xs font-bold tracking-wide">
                         <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
                         <span>Lulusan Baru - Pendidikan Teknologi Informasi</span>
                     </div>
 
                     <!-- Main Title -->
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                    <h1
+                        class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
                         Halo, Saya <br class="hidden sm:inline" />
                         <span class="gradient-text">Muharrama Irfandi</span>
                     </h1>
 
                     <!-- Short Intro -->
                     <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl">
-                        Lulusan <strong class="text-slate-900 font-semibold">UIN Ar-Raniry Banda Aceh</strong> (IPK 3,60) yang berdedikasi tinggi di bidang Teknologi Informasi, pengajaran Komputer, serta otomasi <strong class="text-brand-600 font-semibold">Internet of Things (IoT)</strong>.
+                        Lulusan <strong class="text-slate-900 font-semibold">UIN Ar-Raniry Banda Aceh</strong> (IPK
+                        3,60) yang berdedikasi tinggi di bidang Teknologi Informasi, pengajaran Komputer, serta otomasi
+                        <strong class="text-brand-600 font-semibold">Internet of Things (IoT)</strong>.
                     </p>
 
                     <!-- Location & Contact Info Quick Strip -->
                     <div class="flex flex-wrap items-center gap-4 text-xs font-semibold text-slate-600 pt-1">
-                        <div class="flex items-center gap-2 bg-white px-3 py-2 rounded-xl border border-slate-200 shadow-sm">
+                        <div
+                            class="flex items-center gap-2 bg-white px-3 py-2 rounded-xl border border-slate-200 shadow-sm">
                             <i class="fa-solid fa-location-dot text-rose-500"></i>
                             <span>Banda Aceh, Indonesia</span>
                         </div>
-                        <div class="flex items-center gap-2 bg-white px-3 py-2 rounded-xl border border-slate-200 shadow-sm">
+                        <div
+                            class="flex items-center gap-2 bg-white px-3 py-2 rounded-xl border border-slate-200 shadow-sm">
                             <i class="fa-solid fa-graduation-cap text-brand-600"></i>
                             <span>IPK: 3.60 / 4.00</span>
                         </div>
-                        <div class="flex items-center gap-2 bg-white px-3 py-2 rounded-xl border border-slate-200 shadow-sm">
+                        <div
+                            class="flex items-center gap-2 bg-white px-3 py-2 rounded-xl border border-slate-200 shadow-sm">
                             <i class="fa-solid fa-briefcase text-emerald-600"></i>
                             <span>Eks-Guru Informatika & Operator</span>
                         </div>
@@ -190,30 +240,39 @@
 
                     <!-- Hero Call-To-Action Buttons -->
                     <div class="pt-4 flex flex-wrap items-center gap-3">
-                        <a href="Muharrama_Irfandi_Resume.pdf" download target="_blank" class="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-brand-600 to-emerald-600 text-white font-bold text-sm hover:shadow-lg hover:shadow-brand-500/25 hover:-translate-y-0.5 transition-all flex items-center gap-2.5">
+                        <a href="Muharrama_Irfandi_Resume.pdf" download target="_blank"
+                            class="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-brand-600 to-emerald-600 text-white font-bold text-sm hover:shadow-lg hover:shadow-brand-500/25 hover:-translate-y-0.5 transition-all flex items-center gap-2.5">
                             <i class="fa-solid fa-file-arrow-down text-base"></i>
                             <span>Unduh CV</span>
                         </a>
-                        <a href="#iot-skripsi" class="px-6 py-3.5 rounded-2xl bg-white border border-slate-200 text-slate-700 font-bold text-sm hover:bg-slate-50 hover:border-slate-300 transition-all flex items-center gap-2 shadow-sm">
+                        <a href="#iot-skripsi"
+                            class="px-6 py-3.5 rounded-2xl bg-white border border-slate-200 text-slate-700 font-bold text-sm hover:bg-slate-50 hover:border-slate-300 transition-all flex items-center gap-2 shadow-sm">
                             <span>Lihat Skripsi IoT</span>
                             <i class="fa-solid fa-arrow-down"></i>
                         </a>
-                        <button onclick="copyToClipboard('+6282215019376', 'Nomor WhatsApp disalin!')" class="px-5 py-3.5 rounded-2xl bg-white border border-slate-200 text-slate-700 font-bold text-sm hover:bg-slate-50 hover:border-slate-300 transition-all flex items-center gap-2 shadow-sm">
-                            <i class="fa-brands fa-whatsapp text-emerald-500 text-base"></i>
-                            <span>+62 822 1501 9376</span>
-                        </button>
+                        <a href="https://wa.me/6282215019376?text=Halo%20Muharrama%20Irfandi,%20saya%20tertarik%20dengan%20portofolio%20Anda."
+                            target="_blank" title="Hubungi via WhatsApp"
+                            class="px-5 py-3.5 rounded-2xl bg-white border border-slate-200 text-slate-800 hover:text-emerald-600 font-bold text-sm hover:bg-emerald-50/80 hover:border-emerald-300 transition-all flex items-center gap-2.5 shadow-sm group">
+                            <i
+                                class="fa-brands fa-whatsapp text-emerald-500 text-xl group-hover:scale-110 transition-transform"></i>
+
+                        </a>
                     </div>
 
                     <!-- Social Icons Strip -->
                     <div class="pt-2 flex items-center gap-3">
-                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider mr-2">Temukan Saya:</span>
-                        <a href="https://www.linkedin.com/in/muharrama-irfandi-13433b427" target="_blank" class="w-10 h-10 rounded-xl bg-white border border-slate-200 text-slate-600 hover:text-brand-600 hover:border-brand-300 flex items-center justify-center transition-all shadow-sm">
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider mr-2">Temukan
+                            Saya:</span>
+                        <a href="https://www.linkedin.com/in/muharrama-irfandi-13433b427" target="_blank"
+                            class="w-10 h-10 rounded-xl bg-white border border-slate-200 text-slate-600 hover:text-brand-600 hover:border-brand-300 flex items-center justify-center transition-all shadow-sm">
                             <i class="fa-brands fa-linkedin-in"></i>
                         </a>
-                        <a href="https://www.tiktok.com/@_mhrrma" target="_blank" class="w-10 h-10 rounded-xl bg-white border border-slate-200 text-slate-600 hover:text-slate-900 hover:border-slate-400 flex items-center justify-center transition-all shadow-sm">
+                        <a href="https://www.tiktok.com/@_mhrrma" target="_blank"
+                            class="w-10 h-10 rounded-xl bg-white border border-slate-200 text-slate-600 hover:text-slate-900 hover:border-slate-400 flex items-center justify-center transition-all shadow-sm">
                             <i class="fa-brands fa-tiktok"></i>
                         </a>
-                        <a href="https://www.instagram.com/_mhrrmaa23" target="_blank" class="w-10 h-10 rounded-xl bg-white border border-slate-200 text-slate-600 hover:text-rose-600 hover:border-rose-300 flex items-center justify-center transition-all shadow-sm">
+                        <a href="https://www.instagram.com/_mhrrmaa23" target="_blank"
+                            class="w-10 h-10 rounded-xl bg-white border border-slate-200 text-slate-600 hover:text-rose-600 hover:border-rose-300 flex items-center justify-center transition-all shadow-sm">
                             <i class="fa-brands fa-instagram"></i>
                         </a>
                     </div>
@@ -223,15 +282,19 @@
                 <div class="lg:col-span-5">
                     <div class="relative">
                         <!-- Decorative background glow -->
-                        <div class="absolute -inset-2 bg-gradient-to-r from-brand-400 to-emerald-400 rounded-3xl blur-2xl opacity-30 animate-pulse-slow"></div>
+                        <div
+                            class="absolute -inset-2 bg-gradient-to-r from-brand-400 to-emerald-400 rounded-3xl blur-2xl opacity-30 animate-pulse-slow">
+                        </div>
 
                         <!-- Card Body -->
                         <div class="relative glass-card rounded-3xl p-6 sm:p-8 shadow-xl border border-white">
                             <!-- Visual Avatar Header -->
                             <div class="flex items-center gap-4 pb-6 border-b border-slate-200/80">
                                 <div class="relative flex-shrink-0">
-                                    <img src="Profil.jpeg" alt="Profil Muharrama Irfandi" class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl object-cover object-top shadow-md border-2 border-white ring-2 ring-brand-100/80">
-                                    <div class="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-emerald-500 border-2 border-white flex items-center justify-center text-white text-xs shadow-md" title="Siap Berkontribusi">
+                                    <img src="Profil.jpeg" alt="Profil Muharrama Irfandi"
+                                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl object-cover object-top shadow-md border-2 border-white ring-2 ring-brand-100/80">
+                                    <div class="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-emerald-500 border-2 border-white flex items-center justify-center text-white text-xs shadow-md"
+                                        title="Siap Berkontribusi">
                                         <i class="fa-solid fa-check"></i>
                                     </div>
                                 </div>
@@ -239,7 +302,8 @@
                                     <h2 class="text-xl font-bold text-slate-900">Muharrama Irfandi</h2>
                                     <p class="text-xs font-medium text-slate-500">S.Pd. (Pendidikan Tek. Informasi)</p>
                                     <div class="mt-2 flex items-center gap-2">
-                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800">
+                                        <span
+                                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800">
                                             Siap Berkontribusi
                                         </span>
                                     </div>
@@ -254,7 +318,8 @@
                                     </div>
                                     <div>
                                         <h3 class="text-xs font-bold text-slate-900">Spesialisasi Otomasi IoT</h3>
-                                        <p class="text-xs text-slate-600">Sistem otomatisasi sensor & mikrokontroler penyiraman/penyemprotan tanaman.</p>
+                                        <p class="text-xs text-slate-600">Sistem otomatisasi sensor & mikrokontroler
+                                            penyiraman/penyemprotan tanaman.</p>
                                     </div>
                                 </div>
 
@@ -263,8 +328,10 @@
                                         <i class="fa-solid fa-chalkboard-user text-sm"></i>
                                     </div>
                                     <div>
-                                        <h3 class="text-xs font-bold text-slate-900">Pengalaman Pengajar Informatika</h3>
-                                        <p class="text-xs text-slate-600">Mengajar siswa dari fondasi MS Office hingga UI/UX prototyping di Figma.</p>
+                                        <h3 class="text-xs font-bold text-slate-900">Pengalaman Pengajar Informatika
+                                        </h3>
+                                        <p class="text-xs text-slate-600">Mengajar siswa dari fondasi MS Office hingga
+                                            UI/UX prototyping di Figma.</p>
                                     </div>
                                 </div>
 
@@ -274,15 +341,18 @@
                                     </div>
                                     <div>
                                         <h3 class="text-xs font-bold text-slate-900">Administrasi & Manajemen Data</h3>
-                                        <p class="text-xs text-slate-600">Rapi & teliti dalam pengarsipan berkas serta pembuatan dokumen dinas/kantor.</p>
+                                        <p class="text-xs text-slate-600">Rapi & teliti dalam pengarsipan berkas serta
+                                            pembuatan dokumen dinas/kantor.</p>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Footer Quote -->
-                            <div class="pt-4 border-t border-slate-200/80 bg-slate-50/50 -mx-6 -mb-6 p-4 rounded-b-3xl text-center">
+                            <div
+                                class="pt-4 border-t border-slate-200/80 bg-slate-50/50 -mx-6 -mb-6 p-4 rounded-b-3xl text-center">
                                 <p class="text-xs text-slate-500 italic">
-                                    "Berkomitmen untuk terus belajar, beradaptasi dengan teknologi, dan memberikan kontribusi terbaik."
+                                    "Berkomitmen untuk terus belajar, beradaptasi dengan teknologi, dan memberikan
+                                    kontribusi terbaik."
                                 </p>
                             </div>
                         </div>
@@ -297,14 +367,16 @@
     <section id="iot-skripsi" class="py-16 bg-white border-y border-slate-200/80">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="text-xs font-bold text-emerald-600 tracking-wider uppercase bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+                <span
+                    class="text-xs font-bold text-emerald-600 tracking-wider uppercase bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
                     Projek Skripsi & Tugas Akhir
                 </span>
                 <h2 class="text-3xl font-extrabold text-slate-900 mt-3 tracking-tight">
                     Sistem Otomasi Penyiraman & Penyemprotan Hama Berbasis IoT
                 </h2>
                 <p class="text-slate-600 text-sm mt-2">
-                    Implementasi teknologi Internet of Things (IoT) untuk pemantauan dan perawatan tanaman secara otomatis berbasis kendali sensor pintar.
+                    Implementasi teknologi Internet of Things (IoT) untuk pemantauan dan perawatan tanaman secara
+                    otomatis berbasis kendali sensor pintar.
                 </p>
             </div>
 
@@ -316,7 +388,9 @@
                             <i class="fa-solid fa-lightbulb text-amber-500"></i> Latar Belakang & Solusi
                         </h3>
                         <p class="text-xs text-slate-600 leading-relaxed">
-                            Proyek skripsi ini dirancang untuk mengatasi masalah ketidakstabilan kadar air tanah dan serangan hama daun pada pertanian lokal. Menggabungkan sensor fisik, aktuator pompa, dan mikrokontroler sehingga perawatan dapat berjalan presisi tanpa pengerjaan manual penuh.
+                            Proyek skripsi ini dirancang untuk mengatasi masalah ketidakstabilan kadar air tanah dan
+                            serangan hama daun pada pertanian lokal. Menggabungkan sensor fisik, aktuator pompa, dan
+                            mikrokontroler sehingga perawatan dapat berjalan presisi tanpa pengerjaan manual penuh.
                         </p>
                     </div>
                 </div>
@@ -328,16 +402,20 @@
                             <i class="fa-solid fa-gear text-brand-600"></i> Komponen & Teknologi
                         </h3>
                         <div class="grid grid-cols-2 gap-2 text-xs">
-                            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200/80 font-medium text-slate-700">
+                            <div
+                                class="bg-slate-50 p-2.5 rounded-xl border border-slate-200/80 font-medium text-slate-700">
                                 <i class="fa-solid fa-microchip text-brand-500 mr-1.5"></i> ESP32 / Arduino
                             </div>
-                            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200/80 font-medium text-slate-700">
+                            <div
+                                class="bg-slate-50 p-2.5 rounded-xl border border-slate-200/80 font-medium text-slate-700">
                                 <i class="fa-solid fa-gauge text-emerald-500 mr-1.5"></i> Soil Moisture Sensor
                             </div>
-                            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200/80 font-medium text-slate-700">
+                            <div
+                                class="bg-slate-50 p-2.5 rounded-xl border border-slate-200/80 font-medium text-slate-700">
                                 <i class="fa-solid fa-faucet-drip text-cyan-500 mr-1.5"></i> Relay & DC Pump
                             </div>
-                            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200/80 font-medium text-slate-700">
+                            <div
+                                class="bg-slate-50 p-2.5 rounded-xl border border-slate-200/80 font-medium text-slate-700">
                                 <i class="fa-solid fa-wifi text-indigo-500 mr-1.5"></i> IoT Telemetry / App
                             </div>
                         </div>
@@ -345,10 +423,12 @@
                 </div>
 
                 <!-- Skripsi Breakdown Card 3 -->
-                <div class="glass-card rounded-3xl p-6 border border-slate-200 bg-gradient-to-br from-brand-50 to-emerald-50 flex flex-col justify-between">
+                <div
+                    class="glass-card rounded-3xl p-6 border border-slate-200 bg-gradient-to-br from-brand-50 to-emerald-50 flex flex-col justify-between">
                     <div class="space-y-3">
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-2xl bg-brand-600 text-white flex items-center justify-center font-bold text-lg shadow-md">
+                            <div
+                                class="w-10 h-10 rounded-2xl bg-brand-600 text-white flex items-center justify-center font-bold text-lg shadow-md">
                                 <i class="fa-solid fa-graduation-cap"></i>
                             </div>
                             <div>
@@ -357,7 +437,8 @@
                             </div>
                         </div>
                         <div class="pt-2 text-xs text-slate-600">
-                            <span class="inline-flex items-center gap-1.5 text-emerald-700 font-bold bg-emerald-100/80 border border-emerald-200 px-3 py-1.5 rounded-full text-xs">
+                            <span
+                                class="inline-flex items-center gap-1.5 text-emerald-700 font-bold bg-emerald-100/80 border border-emerald-200 px-3 py-1.5 rounded-full text-xs">
                                 <i class="fa-solid fa-circle-check"></i> Telah Diuji & Dipertahankan (IPK: 3,60)
                             </span>
                         </div>
@@ -372,7 +453,8 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
                 <div>
-                    <span class="text-xs font-bold text-brand-600 tracking-wider uppercase bg-brand-50 px-3 py-1 rounded-full border border-brand-200">
+                    <span
+                        class="text-xs font-bold text-brand-600 tracking-wider uppercase bg-brand-50 px-3 py-1 rounded-full border border-brand-200">
                         Pengalaman Kerjamu
                     </span>
                     <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2 tracking-tight">
@@ -380,16 +462,20 @@
                     </h2>
                 </div>
                 <p class="text-slate-500 text-xs sm:text-sm mt-2 md:mt-0 max-w-md">
-                    Rekam jejak profesional dalam bidang pendidikan teknologi informatika serta pendampingan operasional administrasi.
+                    Rekam jejak profesional dalam bidang pendidikan teknologi informatika serta pendampingan operasional
+                    administrasi.
                 </p>
             </div>
 
             <div class="space-y-6">
                 <!-- Card Experience 1: MTsN 2 Aceh Besar -->
-                <div class="glass-card rounded-3xl p-6 sm:p-8 border border-slate-200 glass-card-hover transition-all relative overflow-hidden">
-                    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-slate-200/80">
+                <div
+                    class="glass-card rounded-3xl p-6 sm:p-8 border border-slate-200 glass-card-hover transition-all relative overflow-hidden">
+                    <div
+                        class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-slate-200/80">
                         <div class="flex items-center gap-4">
-                            <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-2xl font-bold flex-shrink-0 shadow-sm">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-2xl font-bold flex-shrink-0 shadow-sm">
                                 <i class="fa-solid fa-chalkboard-teacher"></i>
                             </div>
                             <div>
@@ -397,40 +483,53 @@
                                 <p class="text-sm font-semibold text-brand-600">MTsN 2 Aceh Besar</p>
                             </div>
                         </div>
-                        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700 self-start lg:self-auto">
+                        <div
+                            class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700 self-start lg:self-auto">
                             <i class="fa-regular fa-calendar text-brand-600"></i>
                             <span>Januari 2025 – April 2025</span>
                         </div>
                     </div>
 
                     <div class="pt-6">
-                        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Tanggung Jawab & Kontribusi:</h4>
+                        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Tanggung Jawab &
+                            Kontribusi:</h4>
                         <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                            <li class="flex items-start gap-2.5 text-xs text-slate-700 bg-white/80 p-3 rounded-xl border border-slate-100">
+                            <li
+                                class="flex items-start gap-2.5 text-xs text-slate-700 bg-white/80 p-3 rounded-xl border border-slate-100">
                                 <i class="fa-solid fa-circle-check text-emerald-500 mt-0.5"></i>
-                                <span><strong>Merancang Modul Ajar:</strong> Menyusun kurikulum materi pembelajaran informatika yang terstruktur dan interaktif.</span>
+                                <span><strong>Merancang Modul Ajar:</strong> Menyusun kurikulum materi pembelajaran
+                                    informatika yang terstruktur dan interaktif.</span>
                             </li>
-                            <li class="flex items-start gap-2.5 text-xs text-slate-700 bg-white/80 p-3 rounded-xl border border-slate-100">
+                            <li
+                                class="flex items-start gap-2.5 text-xs text-slate-700 bg-white/80 p-3 rounded-xl border border-slate-100">
                                 <i class="fa-solid fa-circle-check text-emerald-500 mt-0.5"></i>
-                                <span><strong>Dasar Aplikasi Komputer:</strong> Melatih siswa dalam penulisan dokumen resmi dan pengolahan kata pada Microsoft Word.</span>
+                                <span><strong>Dasar Aplikasi Komputer:</strong> Melatih siswa dalam penulisan dokumen
+                                    resmi dan pengolahan kata pada Microsoft Word.</span>
                             </li>
-                            <li class="flex items-start gap-2.5 text-xs text-slate-700 bg-white/80 p-3 rounded-xl border border-slate-100">
+                            <li
+                                class="flex items-start gap-2.5 text-xs text-slate-700 bg-white/80 p-3 rounded-xl border border-slate-100">
                                 <i class="fa-solid fa-circle-check text-emerald-500 mt-0.5"></i>
-                                <span><strong>Desain Prototipe UI (Figma):</strong> Mengajarkan konsep pembuatan prototipe aplikasi awal menggunakan Figma untuk mengasah kreativitas siswa.</span>
+                                <span><strong>Desain Prototipe UI (Figma):</strong> Mengajarkan konsep pembuatan
+                                    prototipe aplikasi awal menggunakan Figma untuk mengasah kreativitas siswa.</span>
                             </li>
-                            <li class="flex items-start gap-2.5 text-xs text-slate-700 bg-white/80 p-3 rounded-xl border border-slate-100">
+                            <li
+                                class="flex items-start gap-2.5 text-xs text-slate-700 bg-white/80 p-3 rounded-xl border border-slate-100">
                                 <i class="fa-solid fa-circle-check text-emerald-500 mt-0.5"></i>
-                                <span><strong>Manajemen Kelas:</strong> Membimbing individu dan tim siswa dalam menyelesaikan tugas praktikum laboratorium komputer.</span>
+                                <span><strong>Manajemen Kelas:</strong> Membimbing individu dan tim siswa dalam
+                                    menyelesaikan tugas praktikum laboratorium komputer.</span>
                             </li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- Card Experience 2: Balai Wilayah Sungai Sumatera I -->
-                <div class="glass-card rounded-3xl p-6 sm:p-8 border border-slate-200 glass-card-hover transition-all relative overflow-hidden">
-                    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-slate-200/80">
+                <div
+                    class="glass-card rounded-3xl p-6 sm:p-8 border border-slate-200 glass-card-hover transition-all relative overflow-hidden">
+                    <div
+                        class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-slate-200/80">
                         <div class="flex items-center gap-4">
-                            <div class="w-14 h-14 rounded-2xl bg-cyan-100 text-cyan-700 flex items-center justify-center text-2xl font-bold flex-shrink-0 shadow-sm">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-cyan-100 text-cyan-700 flex items-center justify-center text-2xl font-bold flex-shrink-0 shadow-sm">
                                 <i class="fa-solid fa-building-user"></i>
                             </div>
                             <div>
@@ -438,30 +537,40 @@
                                 <p class="text-sm font-semibold text-brand-600">Balai Wilayah Sungai Sumatera I</p>
                             </div>
                         </div>
-                        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700 self-start lg:self-auto">
+                        <div
+                            class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700 self-start lg:self-auto">
                             <i class="fa-regular fa-calendar text-brand-600"></i>
                             <span>Februari 2024 – Mei 2024</span>
                         </div>
                     </div>
 
                     <div class="pt-6">
-                        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Tanggung Jawab & Kontribusi:</h4>
+                        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Tanggung Jawab &
+                            Kontribusi:</h4>
                         <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                            <li class="flex items-start gap-2.5 text-xs text-slate-700 bg-white/80 p-3 rounded-xl border border-slate-100">
+                            <li
+                                class="flex items-start gap-2.5 text-xs text-slate-700 bg-white/80 p-3 rounded-xl border border-slate-100">
                                 <i class="fa-solid fa-circle-check text-emerald-500 mt-0.5"></i>
-                                <span><strong>Dukungan Operasional:</strong> Bertugas aktif mendampingi operator dalam operasional harian instansi.</span>
+                                <span><strong>Dukungan Operasional:</strong> Bertugas aktif mendampingi operator dalam
+                                    operasional harian instansi.</span>
                             </li>
-                            <li class="flex items-start gap-2.5 text-xs text-slate-700 bg-white/80 p-3 rounded-xl border border-slate-100">
+                            <li
+                                class="flex items-start gap-2.5 text-xs text-slate-700 bg-white/80 p-3 rounded-xl border border-slate-100">
                                 <i class="fa-solid fa-circle-check text-emerald-500 mt-0.5"></i>
-                                <span><strong>Penyusunan Surat & Dokumen:</strong> Membantu drafting dan administrasi persuratan resmi kantor.</span>
+                                <span><strong>Penyusunan Surat & Dokumen:</strong> Membantu drafting dan administrasi
+                                    persuratan resmi kantor.</span>
                             </li>
-                            <li class="flex items-start gap-2.5 text-xs text-slate-700 bg-white/80 p-3 rounded-xl border border-slate-100">
+                            <li
+                                class="flex items-start gap-2.5 text-xs text-slate-700 bg-white/80 p-3 rounded-xl border border-slate-100">
                                 <i class="fa-solid fa-circle-check text-emerald-500 mt-0.5"></i>
-                                <span><strong>Pengarsipan Berkas:</strong> Merapikan, mengelompokkan, serta mendokumentasikan berkas fisik dan digital instansi secara sistematis.</span>
+                                <span><strong>Pengarsipan Berkas:</strong> Merapikan, mengelompokkan, serta
+                                    mendokumentasikan berkas fisik dan digital instansi secara sistematis.</span>
                             </li>
-                            <li class="flex items-start gap-2.5 text-xs text-slate-700 bg-white/80 p-3 rounded-xl border border-slate-100">
+                            <li
+                                class="flex items-start gap-2.5 text-xs text-slate-700 bg-white/80 p-3 rounded-xl border border-slate-100">
                                 <i class="fa-solid fa-circle-check text-emerald-500 mt-0.5"></i>
-                                <span><strong>Manajemen Data Office:</strong> Menggunakan suite Microsoft Office untuk rekap data dan kebutuhan pelaporan kerja.</span>
+                                <span><strong>Manajemen Data Office:</strong> Menggunakan suite Microsoft Office untuk
+                                    rekap data dan kebutuhan pelaporan kerja.</span>
                             </li>
                         </ul>
                     </div>
@@ -478,28 +587,33 @@
                 <!-- Left Column: Education -->
                 <div class="lg:col-span-5 space-y-6">
                     <div>
-                        <span class="text-xs font-bold text-emerald-600 tracking-wider uppercase bg-emerald-100/70 px-3 py-1 rounded-full border border-emerald-200">
+                        <span
+                            class="text-xs font-bold text-emerald-600 tracking-wider uppercase bg-emerald-100/70 px-3 py-1 rounded-full border border-emerald-200">
                             Pendidikan Formal
                         </span>
                         <h2 class="text-2xl font-extrabold text-slate-900 mt-2">Pendidikan</h2>
                     </div>
 
                     <div class="glass-card rounded-3xl p-6 border border-slate-200 relative overflow-hidden">
-                        <div class="w-12 h-12 rounded-2xl bg-brand-600 text-white flex items-center justify-center font-bold text-xl mb-4 shadow-md shadow-brand-500/30">
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-brand-600 text-white flex items-center justify-center font-bold text-xl mb-4 shadow-md shadow-brand-500/30">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </div>
                         <span class="text-xs font-bold text-slate-400 block mb-1">Agustus 2021 – Februari 2026</span>
                         <h3 class="text-lg font-bold text-slate-900">Universitas Islam Negeri Ar-Raniry Banda Aceh</h3>
                         <p class="text-xs font-semibold text-brand-600 mt-0.5">Prodi Pendidikan Teknologi Informasi</p>
-                        
-                        <div class="mt-4 p-3 rounded-2xl bg-emerald-50 border border-emerald-200/80 flex items-center justify-between">
+
+                        <div
+                            class="mt-4 p-3 rounded-2xl bg-emerald-50 border border-emerald-200/80 flex items-center justify-between">
                             <span class="text-xs font-bold text-emerald-800">Indeks Prestasi Kumulatif (IPK)</span>
-                            <span class="text-lg font-black text-emerald-600">3.60 <span class="text-xs font-normal text-slate-500">/ 4.00</span></span>
+                            <span class="text-lg font-black text-emerald-600">3.60 <span
+                                    class="text-xs font-normal text-slate-500">/ 4.00</span></span>
                         </div>
 
                         <div class="mt-4 pt-4 border-t border-slate-200 text-xs text-slate-600">
                             <strong class="text-slate-800 block mb-1">Judul Tugas Akhir / Skripsi:</strong>
-                            <p class="italic">"Implementasi Sistem Otomasi Penyiraman dan Penyemprotan Hama Daun Pada Tanaman Berbasis Internet of Things (IoT)"</p>
+                            <p class="italic">"Implementasi Sistem Otomasi Penyiraman dan Penyemprotan Hama Daun Pada
+                                Tanaman Berbasis Internet of Things (IoT)"</p>
                         </div>
                     </div>
                 </div>
@@ -507,7 +621,8 @@
                 <!-- Right Column: Volunteer & Organizations -->
                 <div class="lg:col-span-7 space-y-6">
                     <div>
-                        <span class="text-xs font-bold text-indigo-600 tracking-wider uppercase bg-indigo-50 px-3 py-1 rounded-full border border-indigo-200">
+                        <span
+                            class="text-xs font-bold text-indigo-600 tracking-wider uppercase bg-indigo-50 px-3 py-1 rounded-full border border-indigo-200">
                             Kepemimpinan & Kemanusiaan
                         </span>
                         <h2 class="text-2xl font-extrabold text-slate-900 mt-2">Pengalaman Organisasi & Relawan</h2>
@@ -518,9 +633,12 @@
                         <div class="glass-card rounded-2xl p-5 border border-slate-200 glass-card-hover transition-all">
                             <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
                                 <h3 class="text-base font-bold text-slate-900">Sekretaris</h3>
-                                <span class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 text-[11px] font-bold">Mei 2024 – Sekarang</span>
+                                <span
+                                    class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 text-[11px] font-bold">Mei
+                                    2024 – Sekarang</span>
                             </div>
-                            <p class="text-xs font-semibold text-brand-600 mb-3">Ikatan Mahasiswa Pemuda Anak Desa Barat Daya (IMP ANDESBARD)</p>
+                            <p class="text-xs font-semibold text-brand-600 mb-3">Ikatan Mahasiswa Pemuda Anak Desa Barat
+                                Daya (IMP ANDESBARD)</p>
                             <ul class="space-y-1.5 text-xs text-slate-600">
                                 <li class="flex items-start gap-2">
                                     <i class="fa-solid fa-angle-right text-brand-500 mt-0.5"></i>
@@ -537,9 +655,12 @@
                         <div class="glass-card rounded-2xl p-5 border border-slate-200 glass-card-hover transition-all">
                             <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
                                 <h3 class="text-base font-bold text-slate-900">Divisi Acara</h3>
-                                <span class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 text-[11px] font-bold">Januari 2024 – Sekarang</span>
+                                <span
+                                    class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 text-[11px] font-bold">Januari
+                                    2024 – Sekarang</span>
                             </div>
-                            <p class="text-xs font-semibold text-brand-600 mb-3">Ikatan Mahasiswa Pelajar Kluet Selatan (IMPAKS)</p>
+                            <p class="text-xs font-semibold text-brand-600 mb-3">Ikatan Mahasiswa Pelajar Kluet Selatan
+                                (IMPAKS)</p>
                             <ul class="space-y-1.5 text-xs text-slate-600">
                                 <li class="flex items-start gap-2">
                                     <i class="fa-solid fa-angle-right text-brand-500 mt-0.5"></i>
@@ -566,29 +687,41 @@
     <section id="skills" class="py-20 bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-10">
-                <span class="text-xs font-bold text-brand-600 tracking-wider uppercase bg-brand-50 px-3 py-1 rounded-full border border-brand-200">
+                <span
+                    class="text-xs font-bold text-brand-600 tracking-wider uppercase bg-brand-50 px-3 py-1 rounded-full border border-brand-200">
                     Keahlian & Kemampuan
                 </span>
                 <h2 class="text-3xl font-extrabold text-slate-900 mt-2">Kompetensi Utama</h2>
                 <p class="text-xs sm:text-sm text-slate-500 mt-2">
-                    Kombinasi antara keahlian teknis komputer, perangkat lunak office, administrasi data, dan kemampuan interpersonal.
+                    Kombinasi antara keahlian teknis komputer, perangkat lunak office, administrasi data, dan kemampuan
+                    interpersonal.
                 </p>
 
                 <!-- Filter Skill Category Buttons -->
                 <div class="flex flex-wrap justify-center gap-2 mt-6" id="skill-filters">
-                    <button onclick="filterSkills('all')" class="skill-btn active px-4 py-2 rounded-xl text-xs font-bold transition-all bg-brand-600 text-white shadow-md shadow-brand-500/20">Semua Skill</button>
-                    <button onclick="filterSkills('tech')" class="skill-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-100 text-slate-600 hover:bg-slate-200">Teknis & IoT</button>
-                    <button onclick="filterSkills('office')" class="skill-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-100 text-slate-600 hover:bg-slate-200">Office & Admin</button>
-                    <button onclick="filterSkills('soft')" class="skill-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-100 text-slate-600 hover:bg-slate-200">Soft Skills & Pengajaran</button>
+                    <button onclick="filterSkills('all')"
+                        class="skill-btn active px-4 py-2 rounded-xl text-xs font-bold transition-all bg-brand-600 text-white shadow-md shadow-brand-500/20">Semua
+                        Skill</button>
+                    <button onclick="filterSkills('tech')"
+                        class="skill-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-100 text-slate-600 hover:bg-slate-200">Teknis
+                        & IoT</button>
+                    <button onclick="filterSkills('office')"
+                        class="skill-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-100 text-slate-600 hover:bg-slate-200">Office
+                        & Admin</button>
+                    <button onclick="filterSkills('soft')"
+                        class="skill-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-100 text-slate-600 hover:bg-slate-200">Soft
+                        Skills & Pengajaran</button>
                 </div>
             </div>
 
             <!-- Skill Cards Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="skills-grid">
-                
+
                 <!-- Skill Card 1 -->
-                <div class="skill-card tech glass-card p-5 rounded-2xl border border-slate-200 flex items-center gap-4 transition-all hover:scale-105">
-                    <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center text-xl font-bold">
+                <div
+                    class="skill-card tech glass-card p-5 rounded-2xl border border-slate-200 flex items-center gap-4 transition-all hover:scale-105">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center text-xl font-bold">
                         <i class="fa-solid fa-microchip"></i>
                     </div>
                     <div>
@@ -598,8 +731,10 @@
                 </div>
 
                 <!-- Skill Card 2 -->
-                <div class="skill-card office tech glass-card p-5 rounded-2xl border border-slate-200 flex items-center gap-4 transition-all hover:scale-105">
-                    <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl font-bold">
+                <div
+                    class="skill-card office tech glass-card p-5 rounded-2xl border border-slate-200 flex items-center gap-4 transition-all hover:scale-105">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl font-bold">
                         <i class="fa-solid fa-desktop"></i>
                     </div>
                     <div>
@@ -609,8 +744,10 @@
                 </div>
 
                 <!-- Skill Card 3 -->
-                <div class="skill-card office glass-card p-5 rounded-2xl border border-slate-200 flex items-center gap-4 transition-all hover:scale-105">
-                    <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl font-bold">
+                <div
+                    class="skill-card office glass-card p-5 rounded-2xl border border-slate-200 flex items-center gap-4 transition-all hover:scale-105">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl font-bold">
                         <i class="fa-solid fa-file-word"></i>
                     </div>
                     <div>
@@ -620,8 +757,10 @@
                 </div>
 
                 <!-- Skill Card 4 -->
-                <div class="skill-card tech glass-card p-5 rounded-2xl border border-slate-200 flex items-center gap-4 transition-all hover:scale-105">
-                    <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-xl font-bold">
+                <div
+                    class="skill-card tech glass-card p-5 rounded-2xl border border-slate-200 flex items-center gap-4 transition-all hover:scale-105">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-xl font-bold">
                         <i class="fa-solid fa-network-wired"></i>
                     </div>
                     <div>
@@ -631,8 +770,10 @@
                 </div>
 
                 <!-- Skill Card 5 -->
-                <div class="skill-card office glass-card p-5 rounded-2xl border border-slate-200 flex items-center gap-4 transition-all hover:scale-105">
-                    <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl font-bold">
+                <div
+                    class="skill-card office glass-card p-5 rounded-2xl border border-slate-200 flex items-center gap-4 transition-all hover:scale-105">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl font-bold">
                         <i class="fa-solid fa-database"></i>
                     </div>
                     <div>
@@ -642,8 +783,10 @@
                 </div>
 
                 <!-- Skill Card 6 -->
-                <div class="skill-card office glass-card p-5 rounded-2xl border border-slate-200 flex items-center gap-4 transition-all hover:scale-105">
-                    <div class="w-12 h-12 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center text-xl font-bold">
+                <div
+                    class="skill-card office glass-card p-5 rounded-2xl border border-slate-200 flex items-center gap-4 transition-all hover:scale-105">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center text-xl font-bold">
                         <i class="fa-solid fa-folder-open"></i>
                     </div>
                     <div>
@@ -653,8 +796,10 @@
                 </div>
 
                 <!-- Skill Card 7 -->
-                <div class="skill-card soft glass-card p-5 rounded-2xl border border-slate-200 flex items-center gap-4 transition-all hover:scale-105">
-                    <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl font-bold">
+                <div
+                    class="skill-card soft glass-card p-5 rounded-2xl border border-slate-200 flex items-center gap-4 transition-all hover:scale-105">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl font-bold">
                         <i class="fa-solid fa-users"></i>
                     </div>
                     <div>
@@ -664,8 +809,10 @@
                 </div>
 
                 <!-- Skill Card 8 -->
-                <div class="skill-card soft glass-card p-5 rounded-2xl border border-slate-200 flex items-center gap-4 transition-all hover:scale-105">
-                    <div class="w-12 h-12 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center text-xl font-bold">
+                <div
+                    class="skill-card soft glass-card p-5 rounded-2xl border border-slate-200 flex items-center gap-4 transition-all hover:scale-105">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center text-xl font-bold">
                         <i class="fa-solid fa-chart-pie"></i>
                     </div>
                     <div>
@@ -675,8 +822,10 @@
                 </div>
 
                 <!-- Skill Card 9 -->
-                <div class="skill-card soft glass-card p-5 rounded-2xl border border-slate-200 flex items-center gap-4 transition-all hover:scale-105">
-                    <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center text-xl font-bold">
+                <div
+                    class="skill-card soft glass-card p-5 rounded-2xl border border-slate-200 flex items-center gap-4 transition-all hover:scale-105">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center text-xl font-bold">
                         <i class="fa-solid fa-display"></i>
                     </div>
                     <div>
@@ -697,69 +846,105 @@
 
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                
+
                 <!-- Contact Direct Info -->
                 <div class="lg:col-span-5 space-y-6">
                     <div>
-                        <span class="text-xs font-bold text-emerald-400 tracking-wider uppercase bg-emerald-950/80 px-3 py-1 rounded-full border border-emerald-800">
+                        <span
+                            class="text-xs font-bold text-emerald-400 tracking-wider uppercase bg-emerald-950/80 px-3 py-1 rounded-full border border-emerald-800">
                             Mari Terhubung
                         </span>
                         <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">Hubungi Saya</h2>
                         <p class="text-slate-400 text-xs sm:text-sm mt-2">
-                            Terbuka untuk peluang kerja di bidang Pendidikan Informatika, IT Support, Operator Administrasi, maupun Otomasi IoT.
+                            Terbuka untuk peluang kerja di bidang Pendidikan Informatika, IT Support, Operator
+                            Administrasi, maupun Otomasi IoT.
                         </p>
                     </div>
 
                     <!-- Direct Contact Buttons -->
                     <div class="space-y-3">
-                        <div onclick="copyToClipboard('muharrama2303@gmail.com', 'Email berhasil disalin!')" class="p-4 rounded-2xl bg-slate-800/80 border border-slate-700 hover:border-brand-500 transition-all cursor-pointer flex items-center justify-between group">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center font-bold">
+                        <!-- Direct Email Card -->
+                        <div
+                            class="p-4 rounded-2xl bg-slate-800/80 border border-slate-700 hover:border-brand-500 transition-all flex items-center justify-between group">
+                            <a href="mailto:muharrama2303@gmail.com?subject=Tawaran%20Pekerjaan%20/%20Diskusi%20Projek"
+                                class="flex items-center gap-3 flex-1">
+                                <div
+                                    class="w-10 h-10 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center font-bold text-lg group-hover:scale-105 transition-transform">
                                     <i class="fa-regular fa-envelope"></i>
                                 </div>
                                 <div>
-                                    <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Email</span>
-                                    <span class="text-sm font-semibold text-slate-200 group-hover:text-white">muharrama2303@gmail.com</span>
+                                    <span
+                                        class="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Email
+                                        Langsung</span>
+                                    <span
+                                        class="text-sm font-semibold text-slate-200 group-hover:text-brand-300 transition-colors">muharrama2303@gmail.com</span>
                                 </div>
-                            </div>
-                            <i class="fa-regular fa-copy text-slate-500 group-hover:text-brand-400 text-sm"></i>
+                            </a>
+                            <a href="mailto:muharrama2303@gmail.com?subject=Tawaran%20Pekerjaan%20/%20Diskusi%20Projek"
+                                class="px-3 py-1.5 rounded-lg bg-brand-600/20 hover:bg-brand-600 text-brand-400 hover:text-white text-xs font-bold transition-all">
+                                Buka Mail
+                            </a>
                         </div>
 
-                        <div onclick="copyToClipboard('+6282215019376', 'Nomor HP/WA disalin!')" class="p-4 rounded-2xl bg-slate-800/80 border border-slate-700 hover:border-emerald-500 transition-all cursor-pointer flex items-center justify-between group">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
-                                    <i class="fa-solid fa-phone"></i>
+                        <!-- Direct WhatsApp Card -->
+                        <div
+                            class="p-4 rounded-2xl bg-slate-800/80 border border-slate-700 hover:border-emerald-500 transition-all flex items-center justify-between group">
+                            <a href="https://wa.me/6282215019376?text=Halo%20Muharrama%20Irfandi,%20saya%20tertarik%20dengan%20portofolio%20Anda."
+                                target="_blank" class="flex items-center gap-3 flex-1">
+                                <div
+                                    class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-lg group-hover:scale-105 transition-transform">
+                                    <i class="fa-brands fa-whatsapp"></i>
                                 </div>
                                 <div>
-                                    <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Telepon / WhatsApp</span>
-                                    <span class="text-sm font-semibold text-slate-200 group-hover:text-white">+62 822 1501 9376</span>
+                                    <span
+                                        class="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">WhatsApp
+                                        Langsung</span>
+                                    <span
+                                        class="text-sm font-semibold text-slate-200 group-hover:text-emerald-300 transition-colors">+62
+                                        822 1501 9376</span>
                                 </div>
-                            </div>
-                            <i class="fa-regular fa-copy text-slate-500 group-hover:text-emerald-400 text-sm"></i>
+                            </a>
+                            <a href="https://wa.me/6282215019376?text=Halo%20Muharrama%20Irfandi,%20saya%20tertarik%20dengan%20portofolio%20Anda."
+                                target="_blank"
+                                class="px-3 py-1.5 rounded-lg bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white text-xs font-bold transition-all flex items-center gap-1">
+                                <i class="fa-brands fa-whatsapp"></i> Chat WA
+                            </a>
                         </div>
 
+                        <!-- Location Card -->
                         <div class="p-4 rounded-2xl bg-slate-800/80 border border-slate-700 flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-rose-500/20 text-rose-400 flex items-center justify-center font-bold">
+                            <div
+                                class="w-10 h-10 rounded-xl bg-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-lg">
                                 <i class="fa-solid fa-location-dot"></i>
                             </div>
                             <div>
-                                <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Lokasi Domisili</span>
-                                <span class="text-sm font-semibold text-slate-200">Banda Aceh, Nanggroe Aceh Darussalam</span>
+                                <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Lokasi
+                                    Domisili</span>
+                                <span class="text-sm font-semibold text-slate-200">Banda Aceh, Nanggroe Aceh
+                                    Darussalam</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Social Media Links -->
                     <div class="pt-2">
-                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Tautan Media Sosial:</span>
-                        <div class="flex gap-3">
-                            <a href="https://www.linkedin.com/in/muharrama-irfandi-13433b427" target="_blank" class="px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:bg-brand-600 hover:border-brand-500 text-xs font-bold text-slate-300 hover:text-white transition-all flex items-center gap-2">
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Tautan Media
+                            Sosial:</span>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://wa.me/6282215019376" target="_blank"
+                                class="px-4 py-2.5 rounded-xl bg-emerald-950/60 border border-emerald-800/80 hover:bg-emerald-600 hover:border-emerald-500 text-xs font-bold text-emerald-400 hover:text-white transition-all flex items-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp
+                            </a>
+                            <a href="https://www.linkedin.com/in/muharrama-irfandi-13433b427" target="_blank"
+                                class="px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:bg-brand-600 hover:border-brand-500 text-xs font-bold text-slate-300 hover:text-white transition-all flex items-center gap-2">
                                 <i class="fa-brands fa-linkedin-in text-sm"></i> LinkedIn
                             </a>
-                            <a href="https://www.tiktok.com/@_mhrrma" target="_blank" class="px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:bg-slate-700 text-xs font-bold text-slate-300 hover:text-white transition-all flex items-center gap-2">
+                            <a href="https://www.tiktok.com/@_mhrrma" target="_blank"
+                                class="px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:bg-slate-700 text-xs font-bold text-slate-300 hover:text-white transition-all flex items-center gap-2">
                                 <i class="fa-brands fa-tiktok text-sm"></i> TikTok
                             </a>
-                            <a href="https://www.instagram.com/_mhrrmaa23" target="_blank" class="px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:bg-rose-600 hover:border-rose-500 text-xs font-bold text-slate-300 hover:text-white transition-all flex items-center gap-2">
+                            <a href="https://www.instagram.com/_mhrrmaa23" target="_blank"
+                                class="px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:bg-rose-600 hover:border-rose-500 text-xs font-bold text-slate-300 hover:text-white transition-all flex items-center gap-2">
                                 <i class="fa-brands fa-instagram text-sm"></i> Instagram
                             </a>
                         </div>
@@ -768,36 +953,40 @@
 
                 <!-- Contact Interactive Form Card -->
                 <div class="lg:col-span-7">
-                    <div class="bg-slate-800/90 rounded-3xl p-6 sm:p-8 border border-slate-700 shadow-xl">
+                    <div class="bg-slate-800/90 rounded-3xl p-6 sm:p-8 border border-slate-700 shadow-xl relative">
                         <h3 class="text-xl font-bold text-white mb-1">Kirim Pesan Langsung</h3>
-                        <p class="text-xs text-slate-400 mb-6">Isi formulir di bawah ini untuk mengirimkan email otomatis ke Muharrama Irfandi.</p>
+                        <p class="text-xs text-slate-400 mb-6">Isi Nama, Subjek, dan Pesan di bawah ini untuk langsung diteruskan ke <span
+                                class="text-slate-300 font-semibold">muharrama2303@gmail.com</span>.</p>
 
-                        <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-xs font-bold text-slate-300 mb-1.5">Nama Lengkap</label>
-                                    <input type="text" required placeholder="Masukkan nama Anda" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 transition-all">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-bold text-slate-300 mb-1.5">Email Anda</label>
-                                    <input type="email" required placeholder="nama@email.com" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 transition-all">
-                                </div>
+                        <form id="contact-form" onsubmit="sendDirectEmail(event)" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-300 mb-1.5">Nama Lengkap *</label>
+                                <input type="text" id="contact-name" name="name" required
+                                    placeholder="Masukkan nama Anda"
+                                    class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 transition-all">
                             </div>
 
                             <div>
                                 <label class="block text-xs font-bold text-slate-300 mb-1.5">Subjek / Perihal</label>
-                                <input type="text" required placeholder="Tawaran Pekerjaan / Diskusi Projek" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 transition-all">
+                                <input type="text" id="contact-subject" name="_subject"
+                                    placeholder="Tawaran Pekerjaan / Diskusi Projek"
+                                    class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 transition-all">
                             </div>
 
                             <div>
-                                <label class="block text-xs font-bold text-slate-300 mb-1.5">Pesan</label>
-                                <textarea rows="4" required placeholder="Tuliskan pesan atau penawaran Anda..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 transition-all resize-none"></textarea>
+                                <label class="block text-xs font-bold text-slate-300 mb-1.5">Pesan *</label>
+                                <textarea id="contact-message" name="message" rows="4" required
+                                    placeholder="Tuliskan pesan atau penawaran Anda..."
+                                    class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 transition-all resize-none"></textarea>
                             </div>
 
-                            <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-brand-600 to-emerald-600 hover:from-brand-500 hover:to-emerald-500 text-white font-bold text-xs tracking-wider uppercase transition-all shadow-lg flex items-center justify-center gap-2">
-                                <i class="fa-solid fa-paper-plane"></i>
-                                <span>Kirim Pesan Sekarang</span>
-                            </button>
+                            <div class="pt-2">
+                                <button type="submit" id="btn-submit-email"
+                                    class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-600 to-blue-600 hover:from-brand-500 hover:to-blue-500 text-white font-bold text-xs tracking-wider uppercase transition-all shadow-lg flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-paper-plane text-xs"></i>
+                                    <span>Kirim Pesan Ke Email</span>
+                                </button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -805,7 +994,8 @@
             </div>
 
             <!-- Copyright footer -->
-            <div class="mt-16 pt-8 border-t border-slate-800 text-center text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div
+                class="mt-16 pt-8 border-t border-slate-800 text-center text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <p>&copy; 2026 Muharrama Irfandi, S.Pd. Seluruh Hak Cipta Dilindungi.</p>
                 <p class="flex items-center gap-1">
                     <span>Dikembangkan untuk Portofolio Profesional</span>
@@ -847,7 +1037,7 @@
             const toast = document.getElementById('toast');
             const toastMsg = document.getElementById('toast-message');
             toastMsg.innerText = message;
-            
+
             toast.classList.remove('translate-y-20', 'opacity-0');
             toast.classList.add('translate-y-0', 'opacity-100');
 
@@ -855,35 +1045,6 @@
                 toast.classList.remove('translate-y-0', 'opacity-100');
                 toast.classList.add('translate-y-20', 'opacity-0');
             }, 3000);
-        }
-
-        // Copy To Clipboard Function
-        function copyToClipboard(text, successMessage) {
-            if (navigator.clipboard && window.isSecureContext) {
-                navigator.clipboard.writeText(text).then(() => {
-                    showToast(successMessage || 'Teks berhasil disalin!');
-                }).catch(() => {
-                    fallbackCopy(text, successMessage);
-                });
-            } else {
-                fallbackCopy(text, successMessage);
-            }
-        }
-
-        function fallbackCopy(text, successMessage) {
-            const dummy = document.createElement('textarea');
-            dummy.style.position = 'fixed';
-            dummy.style.opacity = '0';
-            dummy.value = text;
-            document.body.appendChild(dummy);
-            dummy.select();
-            try {
-                document.execCommand('copy');
-                showToast(successMessage || 'Teks berhasil disalin!');
-            } catch (err) {
-                showToast('Gagal menyalin teks');
-            }
-            document.body.removeChild(dummy);
         }
 
         // Interactive IoT Skripsi Simulator
@@ -942,12 +1103,44 @@
             });
         }
 
+        // Direct Email Form Handler (Laptop -> Gmail Web, HP -> Email App)
+        function sendDirectEmail(event) {
+            if (event) event.preventDefault();
+
+            const name = document.getElementById('contact-name').value.trim();
+            const subjectInput = document.getElementById('contact-subject').value.trim();
+            const message = document.getElementById('contact-message').value.trim();
+
+            if (!name || !message) {
+                showToast('Mohon lengkapi Nama dan Pesan Anda!');
+                return;
+            }
+
+            const subject = subjectInput || `Pesan dari Portofolio - ${name}`;
+            const body = `Halo Muharrama Irfandi,\n\nNama: ${name}\n\nPesan:\n${message}`;
+
+            // Deteksi Perangkat Mobile (HP) vs Laptop/Desktop
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
+
+            if (isMobile) {
+                // Di HP: Buka Aplikasi Email bawaan (Gmail App, Apple Mail, dsb.)
+                const mailtoUrl = `mailto:muharrama2303@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                window.location.href = mailtoUrl;
+                showToast('Membuka aplikasi Email HP...');
+            } else {
+                // Di Laptop / Desktop: Buka Gmail Web Compose langsung di tab baru
+                const gmailWebUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=muharrama2303@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                window.open(gmailWebUrl, '_blank');
+                showToast('Membuka Gmail Web di browser...');
+            }
+        }
+
         // Form Submit Handler
         function handleFormSubmit(event) {
             event.preventDefault();
-            showToast('Pesan Anda berhasil terkirim! Terima kasih.');
-            document.getElementById('contact-form').reset();
+            sendDirectEmail(event);
         }
     </script>
 </body>
+
 </html>
